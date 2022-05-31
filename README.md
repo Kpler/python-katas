@@ -8,6 +8,7 @@ This project has been done in order for us to train practicing good practices su
 - TDD, tests pyramid
 - Emerging design
 - KISS, YAGNI and clean code practices
+- Discuss team standards
 - others...
 
 ### Tools to use it
@@ -23,6 +24,7 @@ Role playing mob programming: https://github.com/willemlarsen/mobprogrammingrpg#
 Rotation time: 5 to 10 minutes. The more people in a mob, the shorter is better. 
 Changing driver:
 - IntelliJ Idea use `code with me` feature when in pair programming - for free usage
+- Visual studio code - extension `Live Share` and `Live Share Audio`
 - Push-pull when changing driver
 
 Call:
@@ -32,7 +34,7 @@ Call:
 Roles at a basic level:
 - driver - person taking care of typing the code
 - navigator - person in charge of leading the discussion with the team and to decide in case of a conflict between team members
-- orchestrator - person in charge of the timer
+- time keeper - person in charge of the timer
 
 After an hour, having a micro retro is a good thing: (3 words)
 - how did it feel?
