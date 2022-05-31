@@ -38,5 +38,13 @@ Roles at a basic level:
 
 After an hour, having a micro retro is a good thing: (3 words)
 - how did it feel?
+- Return on time invested between 0 and 3?
 - what did we do that I feel we should continue to do more of?
 
+### Checklist before begining
+
+1) clone the repo
+2) do nix-shell
+3) create a branch, a random commit, push to the repo
+4) check that you can zoom in your editor
+5) [IDE] configure python sdk
