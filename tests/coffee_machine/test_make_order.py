@@ -1,10 +1,11 @@
-from src.coffee_machine.foo import make_order, Drink
+from src.coffee_machine.order import make_order, Drink
 
-def test_1():
+
+def test_invalid_order_1():
     assert make_order("") is None
 
 
-def test_2():
+def test_invalid_order_2():
     assert make_order("::") is None
 
 
