@@ -15,11 +15,22 @@ def test_order_tea():
 def test_order_chocolate():
     assert is_valid_order("H::") is True
 
+
 def test_order_chocolate_with_sugar():
     assert is_valid_order("H:1:") is True
+
 
 def test_order_chocolate_with_too_many_sugar():
     assert is_valid_order("H:6:") is False
 
+
 def test_order_coffee():
     assert is_valid_order("C::") is True
+
+
+def test_improper_stick():
+    assert is_valid_order("T::0") is False
+
+
+
+

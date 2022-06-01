@@ -6,7 +6,12 @@ def is_valid_order(order: str) -> bool:
 
     if parts[0] not in {"T", "H", "C"}:
         return False
-    if parts[1] not in {None, str(1), str(2)}:
+
+    if parts[1] not in {"", "1", "2"}:
+        return False
+
+    print(parts)
+    if parts[2] and parts[1] == "":
         return False
 
     return True
