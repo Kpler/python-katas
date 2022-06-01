@@ -23,11 +23,12 @@ def make_order(order: str) -> Optional[Drink]:
         return None
 
     sugar = int(parts[1] or "0")
+    stick = sugar > 0
     match parts[0]:
         case "T":
-            drink = Drink(kind="tea", sugar, False)
+            drink = Drink("tea", sugar, stick)
         case "H":
-            drink = Drink("chocolate", sugar, False)
+            drink = Drink("chocolate", sugar, stick)
         case "C":
-            drink = Drink("coffee", sugar, False)
+            drink = Drink("coffee", sugar, stick)
     return drink

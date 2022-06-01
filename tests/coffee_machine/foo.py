@@ -25,12 +25,8 @@ def test_order_chocolate_with_too_many_sugar():
 
 
 def test_order_coffee():
-    assert make_order("C::") is True
+    assert make_order("C::") == Drink("coffee", 0, False)
 
 
 def test_improper_stick():
     assert make_order("T::0") is None
-
-
-
-
