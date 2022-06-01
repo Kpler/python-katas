@@ -9,6 +9,7 @@ This project has been done in order for us to train practicing good practices su
 - Emerging design
 - KISS, YAGNI and clean code practices
 - Discuss team standards
+- Put personal egos on the side 
 - others...
 
 ### Tools to use it
@@ -34,14 +35,14 @@ Call:
 Roles at a basic level:
 - driver - person taking care of typing the code
 - navigator - person in charge of leading the discussion with the team and to decide in case of a conflict between team members
-- time keeper - person in charge of the timer
+- timekeeper - person in charge of the timer
 
 After an hour, having a micro retro is a good thing: (3 words)
 - how did it feel?
 - Return on time invested between 0 and 3?
 - what did we do that I feel we should continue to do more of?
 
-### Checklist before begining
+### Checklist before beginning
 
 1) clone the repo
 2) do nix-shell
