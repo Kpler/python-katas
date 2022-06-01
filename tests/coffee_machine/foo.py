@@ -1,35 +1,35 @@
-from src.coffee_machine.foo import is_valid_order
+from src.coffee_machine.foo import make_order, Drink
 
 def test_1():
-    assert is_valid_order("") is False
+    assert make_order("") is None
 
 
 def test_2():
-    assert is_valid_order("::") is False
+    assert make_order("::") is None
 
 
 def test_order_tea():
-    assert is_valid_order("T::") is True
+    assert make_order("T::") == Drink("tea", 0, False)
 
 
 def test_order_chocolate():
-    assert is_valid_order("H::") is True
+    assert make_order("H::") == Drink("chocolate", 0, False)
 
 
 def test_order_chocolate_with_sugar():
-    assert is_valid_order("H:1:") is True
+    assert make_order("H:1:") == Drink("chocolate", 1, True)
 
 
 def test_order_chocolate_with_too_many_sugar():
-    assert is_valid_order("H:6:") is False
+    assert make_order("H:6:") is None
 
 
 def test_order_coffee():
-    assert is_valid_order("C::") is True
+    assert make_order("C::") is True
 
 
 def test_improper_stick():
-    assert is_valid_order("T::0") is False
+    assert make_order("T::0") is None
 
 
 
