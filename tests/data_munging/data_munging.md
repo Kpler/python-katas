@@ -1,6 +1,6 @@
-# Coffee Machine
+# Data Munging
 
-This is an exercise found on internet to develop practise skills such as:
+This is an exercise found online to develop practise skills such as:
 - TDD
 - emerging design
 - KISS

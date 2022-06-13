@@ -1,6 +1,6 @@
 # Coffee Machine
 
-This is an exercise found on internet to develop practise skills such as: 
+This is an exercise found on the internet to develop practise skills such as: 
 - TDD
 - emerging design
 - KISS
