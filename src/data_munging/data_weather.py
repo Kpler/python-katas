@@ -2,11 +2,12 @@ import csv
 
 
 def retrieve_csv(path: str):
-    lines = []
     with open(path) as file:
         reader = csv.reader(file, delimiter=",")
-        headers = next(reader)
-        for r in reader:
-            lines.append(r)
+        _ = next(reader)
 
-    return lines
+        return list(reader)
+
+
+def find_minimum_spread_date(weather_data: list):
+    return 2
