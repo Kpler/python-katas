@@ -7,7 +7,7 @@ PATH = "tests/data_munging/weather.csv"
 
 def test_read_csv():
     data = retrieve_csv(PATH)
-    assert len(data) == 31
+    assert len(data) == 30
 
 
 def test_read_csv_wrong_file():
