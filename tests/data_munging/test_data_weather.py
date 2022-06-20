@@ -1,4 +1,5 @@
 import pytest
+
 from src.data_munging.data_weather import find_minimum_spread_date, retrieve_csv
 
 
