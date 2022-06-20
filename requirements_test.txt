@@ -1,5 +1,5 @@
+pre-commit==2.19.0
 pytest~=6.0
+pytest-describe~=1.0
 pytest-mock~=3.3
 pytest-spec~=3.0
-pytest-describe~=1.0
-pre-commit==2.19.0

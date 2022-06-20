@@ -2,27 +2,27 @@
 
 ### Purpose?
 
-This project has been done in order for us to train practicing good practices such as: 
-- Pair programming 
+This project has been done in order for us to train practicing good practices such as:
+- Pair programming
 - Mob programming
 - TDD, tests pyramid
 - Emerging design
 - KISS, YAGNI and clean code practices
 - Discuss team standards
-- Put personal egos on the side 
+- Put personal egos on the side
 - others...
 
 ### Tools to use it
 
-Mob timer advance timers: 
+Mob timer advance timers:
 - online: https://mobti.me/
 - on local: http://mobster.cc/
 
 Role playing mob programming: https://github.com/willemlarsen/mobprogrammingrpg#readme
 
-### How? 
+### How?
 
-Rotation time: 5 to 10 minutes. The more people in a mob, the shorter is better. 
+Rotation time: 5 to 10 minutes. The more people in a mob, the shorter is better.
 Changing driver:
 - IntelliJ Idea use `code with me` feature when in pair programming - for free usage
 - Visual studio code - extension `Live Share` and `Live Share Audio`
