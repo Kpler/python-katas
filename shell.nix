@@ -35,7 +35,7 @@ in pkgs.mkShell {
 
     # because nixpkgs may not always contain packages hosted on pypi,
     # we instead rely on a local virtualenv dir for python packages
-    KPLER_VENV_DIR="$KPLER_PROJECT_DIR/.venv/py37"
+    KPLER_VENV_DIR="$KPLER_PROJECT_DIR/.venv/py310"
     python -m venv $KPLER_VENV_DIR
     PATH="$KPLER_VENV_DIR/bin:$PATH"
 
