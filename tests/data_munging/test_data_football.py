@@ -22,8 +22,10 @@ def test_should_compute_difference():
 
 
 def test_should_compute_smallest_difference():
-    input_rows = [["1", "Arsenal", "38", "26", "9", "3", "79", "36", "87", ""],
-                 ["2", "Blackburn", "38", "26", "9", "3", "40", "36", "87", ""]]
+    input_rows = [
+        ["1", "Arsenal", "38", "26", "9", "3", "79", "36", "87", ""],
+        ["2", "Blackburn", "38", "26", "9", "3", "40", "36", "87", ""]
+    ]
     assert compute_smallest_difference(input_rows) == "Blackburn"
 
 

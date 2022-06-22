@@ -1,6 +1,20 @@
 import csv
 
 
+@dataclass(frozen=True)
+class FootballTeam:
+    team: str
+    goals_scored: int
+    goals_taken: int
+
+    def __init__(row: list[str]):
+        pass
+
+    @property
+    def compute_difference(self) -> int:
+        return abs(self.goals_scored - self.goals_taken)
+
+
 def compute_difference(row: list[str]) -> (str, int):
     goals_scored = int(row[6])
     goals_taken = int(row[7])
