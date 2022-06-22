@@ -5,7 +5,7 @@ def compute_difference(row: list[str]) -> (str, int):
     goals_scored = int(row[6])
     goals_taken = int(row[7])
     team = row[1]
-    return team, goals_scored - goals_taken
+    return team, abs(goals_scored - goals_taken)
 
 
 def retrieve_csv(path: str) -> list[list[str]]:
@@ -20,6 +20,10 @@ def retrieve_csv(path: str) -> list[list[str]]:
     return lines
 
 def compute_smallest_difference(data: list[list[str]]) -> str:
-    # smallest = min(data, key=lambda row: compute_difference(row))
-    # return smallest[0]
-    pass
+    team_differences = [compute_difference(row) for row in data]
+    return min(team_differences, key=lambda team: team[1])[0]
+
+
+def compute_football_loser(path: str) -> str:
+    content = retrieve_csv(path)
+    return compute_smallest_difference(content)
