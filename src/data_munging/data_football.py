@@ -1,9 +1,12 @@
 import csv
 
-def compute_difference(row: list[str]) -> int:
+
+def compute_difference(row: list[str]) -> (str, int):
     goals_scored = int(row[6])
     goals_taken = int(row[7])
-    return goals_scored - goals_taken
+    team = row[1]
+    return team, goals_scored - goals_taken
+
 
 def retrieve_csv(path: str) -> list[list[str]]:
     with open(path) as file:
@@ -15,3 +18,4 @@ def retrieve_csv(path: str) -> list[list[str]]:
             lines.append(line)
 
     return lines
+

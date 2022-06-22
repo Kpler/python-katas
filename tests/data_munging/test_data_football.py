@@ -18,4 +18,7 @@ def test_read_csv_wrong_file():
 
 def test_should_compute_difference():
     input_row = ["1", "Arsenal", "38", "26", "9", "3", "79", "36", "87", ""]
-    assert compute_difference(input_row) == 43
+    assert compute_difference(input_row) == ("Arsenal", 43)
+
+def test_should_compute_smallest_difference():
+    assert compute_smallest_difference() == 4
