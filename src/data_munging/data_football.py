@@ -19,3 +19,7 @@ def retrieve_csv(path: str) -> list[list[str]]:
 
     return lines
 
+def compute_smallest_difference(data: list[list[str]]) -> str:
+    # smallest = min(data, key=lambda row: compute_difference(row))
+    # return smallest[0]
+    pass

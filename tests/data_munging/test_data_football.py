@@ -1,6 +1,6 @@
 import pytest
 
-from src.data_munging.data_football import retrieve_csv, compute_difference
+from src.data_munging.data_football import retrieve_csv, compute_difference, compute_smallest_difference
 
 
 PATH = "tests/data_munging/football.csv"
@@ -21,4 +21,6 @@ def test_should_compute_difference():
     assert compute_difference(input_row) == ("Arsenal", 43)
 
 def test_should_compute_smallest_difference():
-    assert compute_smallest_difference() == 4
+    input_rows = [["1", "Arsenal", "38", "26", "9", "3", "79", "36", "87", ""],
+                 ["2", "Blackburn", "38", "26", "9", "3", "40", "36", "87", ""]]
+    assert compute_smallest_difference(input_rows) == "Blackburn"
