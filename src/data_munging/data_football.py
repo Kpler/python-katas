@@ -15,7 +15,7 @@ def retrieve_csv(path: str):
         _ = next(reader)  # skip csv headers
 
         lines = []
-        for r in list(reader)[:-1]:  # '-1' skip average row
+        for r in list(reader):
             row = Row(
                 name=r[1],
                 goals_scored=int(r[6]),
@@ -23,3 +23,6 @@ def retrieve_csv(path: str):
             )
             lines.append(row)
         return lines
+
+def get_min_goal_difference(football_data: list[Row])-> str:
+    return min(football_data, key= lambda row : abs(row.goals_scored - row.goals_taken)).name
