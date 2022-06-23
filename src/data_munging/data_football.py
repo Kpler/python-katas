@@ -24,5 +24,6 @@ def retrieve_csv(path: str):
             lines.append(row)
         return lines
 
-def get_min_goal_difference(football_data: list[Row])-> str:
-    return min(football_data, key= lambda row : abs(row.goals_scored - row.goals_taken)).name
+
+def get_min_goal_difference(football_data: list[Row]) -> str:
+    return min(football_data, key=lambda row: abs(row.goals_scored - row.goals_taken)).name
