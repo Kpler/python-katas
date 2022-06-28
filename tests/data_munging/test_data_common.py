@@ -1,19 +1,27 @@
-from src.data_munging.data_common import get_min_spread, parse_row, retrieve_csv
+import pytest
 
-PATH = "tests/data_munging/football.csv"
+from src.data_munging.data_common import get_min_delta, parse_row, retrieve_csv
 
-
-def test_retrieve_csv():
-    lines = retrieve_csv(PATH, 0,0,0)
-    assert len(lines) == 20
+WEATHER_PATH = "tests/data_munging/weather.csv"
+FOOTBALL_PATH = "tests/data_munging/football.csv"
 
 
-def test_row_delta():
-    row = "1,88,59,74,,53.8,,0.00,F,280,9.6,270,17,1.6,93,23,1004.5".split(",")
-    res = parse_row(row, 0, 2, 1)
-    assert res.delta == 29
+def test_retrieve_weather_csv():
+    data = retrieve_csv(WEATHER_PATH, 0, 0, 0)
+    assert len(data) == 30
 
 
-def test_get_min_spread():
-    data = retrieve_csv(PATH, 1, 7, 6)
-    assert get_min_spread(data) == "Aston_Villa"
+def test_retrieve_weather_csv_wrong_file():
+    with pytest.raises(FileNotFoundError):
+        retrieve_csv("team2", 0, 0, 0)
+
+
+def test_find_minimum_weather_spread():
+    data = retrieve_csv(WEATHER_PATH, 0, 1, 2)
+    date_with_minimum_spread = get_min_delta(data)
+    assert date_with_minimum_spread == '14'
+
+
+def test_get_min_goal_difference():
+    data = retrieve_csv(FOOTBALL_PATH, 1, 6, 7)
+    assert get_min_delta(data) == "Aston_Villa"
