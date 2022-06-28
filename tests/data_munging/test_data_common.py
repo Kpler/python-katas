@@ -4,7 +4,7 @@ PATH = "tests/data_munging/football.csv"
 
 
 def test_retrieve_csv():
-    lines = retrieve_csv(path=PATH)
+    lines = retrieve_csv(PATH, 0,0,0)
     assert len(lines) == 20
 
 
@@ -15,5 +15,5 @@ def test_row_delta():
 
 
 def test_get_min_spread():
-    data = retrieve_csv(PATH)
+    data = retrieve_csv(PATH, 1, 7, 6)
     assert get_min_spread(data) == "Aston_Villa"
