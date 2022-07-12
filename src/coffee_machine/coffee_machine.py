@@ -1,7 +1,10 @@
 
 
-def make_drink(input: str) -> str:
+def make_drink(input: str, number_of_sugar: int) -> str:
+    first_char: str
+    
     if input=="tea":
-        return "T:1:0"
+      first_char="T"
     elif input=="chocolate":
-        return "H::"
+      first_char="H"
+
