@@ -8,3 +8,7 @@ def make_drink(input: str, number_of_sugar: int) -> str:
     elif input=="chocolate":
       first_char="H"
 
+    second_char: int
+    if
+
+    third_char: int
