@@ -1,4 +1,5 @@
 from typing import Optional
 
 def make_drink(drink: str, sugar = 0):
-  return
+  if drink == "coffee":
+    return 'C::'
