@@ -4,6 +4,8 @@ def order(order_type: str, nb_of_sugars: int = 0) -> str:
     elif order_type == 'T':
         return 'T::'
     elif order_type == 'C':
+        if nb_of_sugars > 0:
+            return f"C:{nb_of_sugars}:0"
         return 'C::'
     else:
         return 'M:Unsupported Drink'
