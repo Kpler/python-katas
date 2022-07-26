@@ -29,7 +29,9 @@ def make_order(drink_type: DrinkType, sugar: int, money: float):
     sugar_str = str(sugar) if sugar > 0 else ''
     stick = '0' if sugar > 0 else ''
 
-    if drink_type.to_price() > money:
-        return "M:missing 0.4 euros"
+    price_diff = drink_type.to_price() - money
+
+    if price_diff > 0:
+        return f"M:missing {price_diff} euros"
 
     return ':'.join([drink_type.to_drink_maker_protocol(), sugar_str, stick])

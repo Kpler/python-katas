@@ -22,6 +22,6 @@ class CoffeeTestCase(unittest.TestCase):
         self.assertEqual(result, "H::")
 
     def test_not_enough_money(self):
-        result = make_order(DrinkType.COFFEE, 0, 0.2)
-        self.assertEqual(result, "M:missing 0.4 euros")
+        result = make_order(DrinkType.CHOCOLATE, 0, 0.3)
+        self.assertEqual(result, "M:missing 0.2 euros")
 
