@@ -1,20 +1,6 @@
 import unittest
-from enum import Enum
 
-
-class DrinkType(Enum):
-    TEA = 1
-    COFFEE = 2
-    CHOCOLATE = 3
-
-    def to_drink_maker_protocol(self):
-        match self:
-            case DrinkType.TEA:
-                return 'T'
-            case DrinkType.COFFEE:
-                return 'C'
-            case DrinkType.CHOCOLATE:
-                return 'H'
+from src.coffee_machine.coffee_machine import DrinkType, make_order
 
 
 class CoffeeTestCase(unittest.TestCase):
@@ -22,23 +8,20 @@ class CoffeeTestCase(unittest.TestCase):
         # GIVEN
         drink_type = DrinkType.TEA
         sugar = 1
+        money = 0.4
         # WHEN
-        result = self.make_order(drink_type, sugar)
+        result = make_order(drink_type, sugar, money)
         # THEN
-        self.assertEqual(result, "T:1:0")  # add assertion here
+        self.assertEqual(result, "T:1:0")
 
     def test_no_sugar_order(self):
         drink_type = DrinkType.CHOCOLATE
         sugar = 0
-        result = self.make_order(drink_type, sugar)
+        money = 0.5
+        result = make_order(drink_type, sugar, money)
         self.assertEqual(result, "H::")
 
+    def test_not_enough_money(self):
+        result = make_order(DrinkType.COFFEE, 0, 0.2)
+        self.assertEqual(result, "M:missing 0.4 euros")
 
-    def make_order(self, drink_type: DrinkType, sugar: int):
-        sugar_str = str(sugar) if sugar > 0 else ''
-        stick = '0' if sugar > 0 else ''
-        return ':'.join([drink_type.to_drink_maker_protocol(), sugar_str, stick])
-
-
-if __name__ == '__main__':
-    unittest.main()
