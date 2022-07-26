@@ -1,5 +1,4 @@
-def order(order_type: str, nb_of_sugars: int = 0):
-    return 'H::'
+from src.coffee_machine.coffee_machine import order
 
 
 def test_should_order_simple_hot_chocolate():
