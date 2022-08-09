@@ -1,7 +1,7 @@
 
 class Game:
     def score(self) -> int:
-        pass
+        return 0
 
     def roll(self, pins: int):
         pass
