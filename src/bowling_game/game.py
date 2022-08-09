@@ -8,5 +8,5 @@ class Game:
 
     def roll(self, pins: int):
         if not (0<pins<10):
-            raise Exception("We can't score more than 10 pins in a row")
+            raise Exception("We can't score more than 10 pins in a row") as Ex
         self.running_score += pins
