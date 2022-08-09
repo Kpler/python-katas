@@ -27,3 +27,4 @@ def test_exceed():
     game = Game()
     with pytest.raises(Exception):
         game.roll(11)
+    
