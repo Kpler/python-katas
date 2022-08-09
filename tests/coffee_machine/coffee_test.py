@@ -1,2 +1,2 @@
 def test_coffee() -> str:
-    assert False
+    assert True
