@@ -21,12 +21,12 @@ def test_basic_game_should_add_up_pins():
 
 
 def test_spare_should_add_the_next_roll_as_bonus():
-    game = Game()
-    game.roll(3)
-    game.roll(7) # 10 + next roll (1) --> 11
+    game2 = Game()
+    game2.roll(3)
+    game2.roll(7) # 10 + next roll (1) --> 11
 
     for i in range(3, 21):
-        game.roll(1)
-    final_score = game.score()
+        game2.roll(1)
+    final_score = game2.score()
 
     assert final_score == 29
