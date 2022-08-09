@@ -27,6 +27,4 @@ def test_exceed():
     game = Game()
     with pytest.raises(Exception):
         game.roll(11)
-
-    assert Exception.args[0] == "We can't score more than 10 pins in a row"
     
