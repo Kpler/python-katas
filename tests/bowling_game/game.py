@@ -17,3 +17,11 @@ def test_spare():
     game.roll(5)
     game.roll(3)
     assert(game.score() == 16)
+
+def test_invalid_spare():
+    game = Game()
+    game.roll(4)
+    game.roll(5)
+    game.roll(5)
+    game.roll(3)
+    assert(game.score() == 17)
