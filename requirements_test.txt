@@ -4,6 +4,7 @@ pre-commit==2.19.0
 pytest~=7.1.2
 pytest-describe~=1.0
 pytest-mock~=3.3
+pytest-mypy==0.9.1
 pytest-spec~=3.0
 approvaltests==5.3.0
 pytest-approvaltests==0.2.4
