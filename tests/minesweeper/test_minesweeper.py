@@ -41,6 +41,7 @@ def test_win_game() -> None:
     with pytest.raises(WinningGame):
         minesweeper.play(1, 1)
 
+
 def test_almost_win_game() -> None:
     minesweeper = Minesweeper(2, 2, [(0, 0)])
     minesweeper.play(0, 1)

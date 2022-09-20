@@ -55,8 +55,8 @@ class Minesweeper:
             raise GameOver()
 
         count_unswept = 0
-        for (i, moves_row) in enumerate(self._moves_grid):
-            for (j, moves_cell) in enumerate(moves_row):
+        for moves_row in self._moves_grid:
+            for moves_cell in moves_row:
                 if moves_cell == ".":
                     count_unswept += 1
         if count_unswept == len(self._bombs):
