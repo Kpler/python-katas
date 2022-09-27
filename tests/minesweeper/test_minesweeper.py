@@ -23,9 +23,9 @@ def test_bomb_insert_2() -> None:
 
 
 def test_play() -> None:
-    minesweeper = Minesweeper(4, 4, [(0, 0)])
+    minesweeper = Minesweeper(4, 4, [(0, 0),(1,3)])
     assert minesweeper.play(0, 1) == ".1..\n....\n....\n...."
-    assert minesweeper.play(0, 2) == ".10.\n....\n....\n...."
+    assert minesweeper.play(0, 2) == ".11.\n....\n....\n...."
 
 
 def test_game_over() -> None:
@@ -48,3 +48,12 @@ def test_almost_win_game() -> None:
     minesweeper.play(1, 0)
     with pytest.raises(GameOver):
         minesweeper.play(0, 0)
+
+def test_reveal_adjacent_cells_when_a_zero_is_clicked() -> None:
+    minesweeper = Minesweeper(4, 4, [(1, 1)])
+    assert minesweeper.play(0, 3) == "..10\n..10\n1110\n0000"
+
+    # ..10
+    # ..10
+    # 1110
+    # 0000
