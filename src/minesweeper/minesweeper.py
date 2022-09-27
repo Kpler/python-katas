@@ -55,8 +55,8 @@ class Minesweeper:
             raise GameOver()
 
         if self._grid[row][column] == "0":
-            for r in range(row-1,row+2):
-                for c in range(column-1,column+2):
+            for r in range(row - 1, row + 2):
+                for c in range(column - 1, column + 2):
                     if (
                         r > self._rows - 1
                         or r < 0
@@ -65,7 +65,7 @@ class Minesweeper:
                         or self._moves_grid[r][c] != "."
                     ):
                         continue
-                    self.play(r,c)
+                    self.play(r, c)
 
         count_unswept = 0
         for moves_row in self._moves_grid:
