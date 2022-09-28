@@ -3,10 +3,10 @@ from src.tennis_game.tennis_game import Player
 
 def test_player_status():
     player = Player()
-    assert player.status == 'love'
+    assert player.get_status() == "love"
     player.increase_score()
-    assert player.status == '15'
+    assert player.get_status() == "15"
     player.increase_score()
-    assert player.status == '30'
+    assert player.get_status() == "30"
     player.increase_score()
-    assert player.status == '40'
+    assert player.get_status() == "40"
