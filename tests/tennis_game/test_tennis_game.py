@@ -1,3 +1,6 @@
+from src.tennis_game.tennis_game import Player
+
+
 def test_player_status():
     player = Player()
     assert player.status == 'love'
