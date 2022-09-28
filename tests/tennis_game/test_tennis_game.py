@@ -48,7 +48,7 @@ def test_game_deuce():
     assert game.score() == "deuce"
 
 
-def test_game_adantage_after_deuce():
+def test_game_advantage_after_deuce():
     game = Game()
     _deuce_situation(game)
     game.score_point(PLAYER_1)
