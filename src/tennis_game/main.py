@@ -1,8 +1,15 @@
 class Game(object):
 
+
+    score_list = ["love", "15", "30", "40"]
+
+
     def __init__(self):
-        self.player1_score = "love"
-        self.player2_score = "love"
+        self.game_score = [0, 0]
+
 
     def score(self):
-        return f"{self.player1_score}-{self.player2_score}"
+        return f"{self.score_list[self.game_score[0]]}-{self.score_list[self.game_score[1]]}"
+
+    def score_point(self, player_number):
+        self.game_score[player_number]+= 1
