@@ -40,3 +40,15 @@ def test_game_deuce():
     game.score_point(PLAYER_1)
 
     assert game.score() == "deuce"
+
+def test_game_adantage_after_deuce():
+    game = Game()
+    game.score_point(PLAYER_1)
+    game.score_point(PLAYER_2)
+    game.score_point(PLAYER_1)
+    game.score_point(PLAYER_2)
+    game.score_point(PLAYER_2)
+    game.score_point(PLAYER_1)
+    game.score_point(PLAYER_1)
+
+    assert game.score() == "adv-40"
