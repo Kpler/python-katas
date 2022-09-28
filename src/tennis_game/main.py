@@ -15,9 +15,12 @@ class Game(object):
     def score_point(self, player_number):
         self.game_score[player_number] += 1
 
-        if (self.game_score[player_number] == self.MAX_SCORE + 1 and self.game_score[1 - player_number] <  self.MAX_SCORE):
+        if self.game_score[player_number] == self.MAX_SCORE + 1 and self.game_score[1 - player_number] < self.MAX_SCORE:
             self.game_score[player_number] += 1
 
+        if self.game_score[player_number] == self.MAX_SCORE + 1 and self.game_score[1 - player_number] == self.MAX_SCORE + 1:
+            self.game_score[player_number] -= 1
+            self.game_score[1 - player_number] -= 1
 
         if self.game_score[player_number] > self.MAX_SCORE + 1:
             raise Exception(f"Player {player_number + 1} wins !")
