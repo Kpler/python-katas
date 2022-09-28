@@ -1,5 +1,6 @@
 class Player:
-    def __init__(self) -> None:
+    def __init__(self, name) -> None:
+        self.name = name
         self.score = 0
         self.score_to_status = {
             0: "love",
@@ -14,3 +15,14 @@ class Player:
 
     def get_status(self):
         return self.score_to_status[self.score]
+
+class Game:
+    def __init__(self) -> None:
+        self.score = []
+        self.status = 'ongoing'
+        self.p1 = Player()
+        self.p2 = Player()
+        self.winner = None
+
+    def increase_score(self, player_name):
+        pass

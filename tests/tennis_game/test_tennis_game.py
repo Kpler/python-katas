@@ -13,10 +13,10 @@ def test_player_status():
 
 def test_win_without_deuce():
     game = Game()
-    game.p1.increase_score()
-    game.p1.increase_score()
-    game.p1.increase_score()
-    game.p1.increase_score()
+    game.increase_score("p1")
+    game.increase_score("p1")
+    game.increase_score("p1")
+    game.increase_score("p1")
     assert game.status == 'over'
     assert game.winner == game.p1
     assert game.score == [40, 0]
