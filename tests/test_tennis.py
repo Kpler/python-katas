@@ -12,7 +12,6 @@ def test_get_empty_match_score():
 
 
 def test_get_non_empty_match_score():
-    tennisGame = TennisMatch()
-    tennisSet = Set(3, 2)
-    tennisGame._score.append(tennisSet)
-    assert tennisGame.getScore() == [(3, 2)]
+    tennisMatch = TennisMatch()
+    tennisMatch.addPoint(0)
+    assert tennisGame.getScore() == [(0, 0), (15, 0)]
