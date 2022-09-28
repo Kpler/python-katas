@@ -10,3 +10,6 @@ def test_player_status():
     assert player.get_status() == "30"
     player.increase_score()
     assert player.get_status() == "40"
+
+def test_is_deuce():
+    pass
