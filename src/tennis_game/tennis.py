@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import TypedDict
 
 
 class Player(Enum):
@@ -23,7 +24,7 @@ class Tennis:
 
     def __init__(self) -> None:
         self.game_score = {Player.ONE: Score.LOVE, Player.TWO: Score.LOVE}
-        self.match_score = {Player.ONE: Score.LOVE, Player.TWO: Score.LOVE}
+        self.match_score = {Player.ONE: 0, Player.TWO: 0}
 
     def play(self, winner: Player):
         current_winner_score = self.game_score.get(winner)

@@ -1,6 +1,6 @@
 import pytest
 
-from src.tennis_game.tennis import Tennis, Player
+from src.tennis_game.tennis import Tennis, Player, Score
 
 
 def test_initial_score_should_be_zero():
