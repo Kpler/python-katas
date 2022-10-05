@@ -14,7 +14,11 @@ class Game:
         self.player_2_score += 1
 
     def is_finished(self):
+        if self.player_1_score > 3 or self.player_2_score > 3:
+            return True
         return False
 
     def get_score(self):
+        if self.is_finished():
+            return "Player 1 wins"
         return f"{self.score_labels[self.player_1_score]}-{self.score_labels[self.player_2_score]}"
