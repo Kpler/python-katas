@@ -5,20 +5,23 @@ class Game:
 
     player_1_score: int = 0
     player_2_score: int = 0
-    score_labels: Sequence[str] = ("love", "15", "30", "40")
+    score_labels: Sequence[str] = ("love", "15", "30", "40", "adv")
 
     def __int__(self):
         pass
 
     def player_1_scored(self) -> None:
         self.player_1_score += 1
+    #     handle deuce (decrease)
 
     def player_2_scored(self) -> None:
         self.player_2_score += 1
+    #     handle deuce (decreate)
 
     def is_finished(self) -> bool:
-        return self.player_1_score > 3 or self.player_2_score > 3
-
+        nominal_game_is_finished = self.player_1_score > 3 or self.player_2_score > 3
+        deuce_is_finished = abs(self.player_1_score - self.player_2_score) > 1
+        return nominal_game_is_finished and deuce_is_finished
 
     def get_score(self) -> str:
         if self.is_finished():

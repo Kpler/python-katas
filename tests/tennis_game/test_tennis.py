@@ -23,6 +23,7 @@ def test_player_1_win_the_game_without_deuce():
     assert game.is_finished()
     assert game.get_score() == "Player 1 wins"
 
+
 def test_player_2_win_the_game_without_deuce():
     game = Game()
     game.player_2_scored()
@@ -31,6 +32,7 @@ def test_player_2_win_the_game_without_deuce():
     game.player_2_scored()
     assert game.is_finished()
     assert game.get_score() == "Player 2 wins"
+
 
 def test_deuce_get_score_returns_40_40():
     game = Game()
@@ -43,7 +45,8 @@ def test_deuce_get_score_returns_40_40():
     assert not game.is_finished()
     assert game.get_score() == "40-40"
 
-def test_deuce_get_score_returns_40_40():
+
+def test_player1_advantage():
     game = Game()
     game.player_1_scored()
     game.player_1_scored()
