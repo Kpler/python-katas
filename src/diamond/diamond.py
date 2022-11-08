@@ -20,9 +20,7 @@ def create_diamond(letter: str) -> str:
         optional_char = current_char if not is_letter_a else ""
         outer_spaces = " " * outer_gap
         inner_spaces = " " * inner_gap
-        output_line = (
-            f"{outer_spaces}{current_char}{inner_spaces}{optional_char}{outer_spaces}"
-        )
+        output_line = f"{outer_spaces}{current_char}{inner_spaces}{optional_char}{outer_spaces}"
         lines.append(output_line)
 
     return "\n".join(lines)

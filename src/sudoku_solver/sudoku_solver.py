@@ -44,23 +44,17 @@ def solve(input_grid: Grid) -> None:
                 continue
 
             possible_values = find_possible_values(input_grid, row_index, cell_index)
-            # print(f"POSSIBLE: {possible_values}")
             if len(possible_values) == 0:
                 raise NoSolution()
 
             index = 0
             solution_found = False
             while not solution_found:
-                # print(f"Trying {possible_values[index]} ({index}) on {row_index}/{cell_index}")
-                # print(input_grid)
-                # print("================")
                 input_grid[row_index][cell_index] = possible_values[index]
                 try:
                     solve(input_grid)
                 except NoSolution:
-                    # print("NO SOLUTION CAUGHT")
                     if index + 2 > len(possible_values):
-                        # print(f"NO SOLUTION for {row_index}/{cell_index}")
                         input_grid[row_index][cell_index] = None
                         raise NoSolution()
                     index += 1
