@@ -9,42 +9,29 @@
 # Report issues on slack #tech-help-nix
 let
   nixpkgs = builtins.fetchTarball {
-    name   = "nixos-21.11-20220312";
-    url    = "https://github.com/NixOS/nixpkgs/archive/bacbfd7.tar.gz";
-    sha256 = "1nlrizg1bxzihrhy4yfdjigpcg808imp7m1rg7wivq18vln6g4j5";
+    name   = "nixos-22.05-20221108";
+    url    = "https://github.com/NixOS/nixpkgs/archive/987a9764e3b6.tar.gz";
+    sha256 = "0bdnzkz5ka3bnjp33hb6zv9jcn44wylskdaqdrhjgc9znsbqqgjw";
   };
   pkgs = import nixpkgs { };
 
-  systemDependencies = [
-    pkgs.python310
-    pkgs.postgresql_12  # libpq is not available, see https://github.com/NixOS/nixpkgs/issues/61580
-  ];
+  python = pkgs.python310;
+
+  poetry = pkgs.poetry.override {
+    python = python;
+  };
+
+  poetryEnv = pkgs.poetry2nix.mkPoetryEnv {
+    python = python;
+    projectDir = ./.;
+    preferWheels = true;
+  };
 
 in pkgs.mkShell {
   buildInputs = [
-      pkgs.python310
-      pkgs.postgresql_12
-      pkgs.openssl  # macOS default SSL libraries are binary incompatible
-    ];
-
-  shellHook = ''
-    # nix should immediately halt when this setup hook fail
-    set -eo pipefail
-
-    KPLER_PROJECT_DIR="${builtins.toPath ./.}"
-
-    # because nixpkgs may not always contain packages hosted on pypi,
-    # we instead rely on a local virtualenv dir for python packages
-    KPLER_VENV_DIR="$KPLER_PROJECT_DIR/.venv/py310"
-    python -m venv $KPLER_VENV_DIR
-    PATH="$KPLER_VENV_DIR/bin:$PATH"
-
-    # install project dependencies
-    echo -e "\033[1;33m\n>>> UPDATING PYTHON DEPENDENCIES\033[0m"
-    pip install --quiet --no-cache-dir --upgrade pip setuptools wheel
-    pip install --no-cache-dir --upgrade --requirement $KPLER_PROJECT_DIR/requirements_test.txt
-
-    # user input should never cause nix to exit
-    set +eo pipefail
-  '';
+    pkgs.python310
+    poetry
+    poetryEnv
+    pkgs.pre-commit
+  ];
 }

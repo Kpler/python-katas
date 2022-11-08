@@ -1,3 +1,31 @@
+[tool.poetry]
+name = "python-katas"
+version = "0.0.0"
+description = ""
+authors = ["Dev <dev@kpler.com>"]
+packages = [
+  { include = "src" }
+]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+pandas = "~1.4"
+python-dateutil = "~2.8"
+
+[tool.poetry.dev-dependencies]
+pytest = "~7.2"
+pytest-describe = "~1.0"
+pytest-mock = "~3.3"
+pytest-spec = "~3.0"
+approvaltests = "~5.3"
+pytest-approvaltests = "~0.2"
+
+
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
+
+
 [tool.black]
 line-length = 100
 target_version = ['py310']
