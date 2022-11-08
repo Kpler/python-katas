@@ -21,17 +21,10 @@ let
     python = python;
   };
 
-  poetryEnv = pkgs.poetry2nix.mkPoetryEnv {
-    python = python;
-    projectDir = ./.;
-    preferWheels = true;
-  };
-
 in pkgs.mkShell {
   buildInputs = [
-    pkgs.python310
+    python
     poetry
-    poetryEnv
     pkgs.pre-commit
   ];
 }
