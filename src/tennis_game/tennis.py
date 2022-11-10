@@ -24,8 +24,10 @@ class Tennis:
         elif current_winner_score == 30:
             self.game_score[winner] = 40
         elif current_winner_score == 40:
-            self.game_score[winner] = 0
+            # self.game_score[winner] = 0
             self.match_score[winner] += 1
+            self.game_score = {Player.ONE: 0, Player.TWO: 0}
+
 
     def get_game_score(self):
         return self.game_score
