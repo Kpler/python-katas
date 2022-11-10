@@ -100,3 +100,23 @@ def test_player_two_does_not_keep_points_after_losing():
 
 
 
+def test_advantage():
+  False
+
+
+def test_deuce():
+  # given
+  game = Tennis()
+  one = Player.ONE
+  two = Player.TWO
+
+  # when
+  for i in range(3):
+    game.play(winner=one)
+    game.play(winner=two)
+  game_score = game.get_game_score()
+  advantate_score = game.get_score_advantage()
+  match_score = game.get_match_score()
+
+  # then
+  game_score
