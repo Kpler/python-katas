@@ -9,7 +9,6 @@ def test_initial_score_should_be_zero():
   assert score.get(Player.ONE) == 0
   assert score.get(Player.TWO) == 0
 
-
 def test_play_should_increment_score():
   pass
 
