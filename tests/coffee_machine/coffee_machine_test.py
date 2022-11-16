@@ -47,6 +47,11 @@ class CoffeeMachineTestCase(unittest.TestCase):
         result_three_sugar = coffee_machine.add_sugar(result_two_sugar)
         self.assertEqual(result_three_sugar, "C:2:0")
 
+    def test_when_display_message_return_message(self):
+        coffee_machine = CoffeeMachine()
+        result = coffee_machine.display_message()
+        self.assertEqual(result, "")
+
 
 if __name__ == "__main__":
     unittest.main()
