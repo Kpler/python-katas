@@ -22,8 +22,9 @@ class CoffeeMachineTestCase(unittest.TestCase):
     def test_when_making_coffee_with_one_sugar_then_get_c_1_0(self):
         coffee_machine = CoffeeMachine()
         result = coffee_machine.make_coffee()
-        end_result = coffee_machine.add_sugar(1, result)
+        end_result = coffee_machine.add_sugar(result)
         self.assertEqual(end_result, "C:1:0")
+
 
 if __name__ == "__main__":
     unittest.main()
