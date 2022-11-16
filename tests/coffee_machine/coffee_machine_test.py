@@ -25,6 +25,28 @@ class CoffeeMachineTestCase(unittest.TestCase):
         end_result = coffee_machine.add_sugar(result)
         self.assertEqual(end_result, "C:1:0")
 
+    def test_when_making_chocolate_with_two_sugars_then_get_h_2_0(self):
+        coffee_machine = CoffeeMachine()
+        result = coffee_machine.make_chocolate()
+        result_one_sugar = coffee_machine.add_sugar(result)
+        result_two_sugar = coffee_machine.add_sugar(result_one_sugar)
+        self.assertEqual(result_two_sugar, "H:2:0")
+
+    def test_when_making_coffee_with_two_sugars_then_get_c_2_0(self):
+        coffee_machine = CoffeeMachine()
+        result = coffee_machine.make_coffee()
+        result_one_sugar = coffee_machine.add_sugar(result)
+        result_two_sugar = coffee_machine.add_sugar(result_one_sugar)
+        self.assertEqual(result_two_sugar, "C:2:0")
+
+    def test_when_making_coffee_with_three_sugars_then_get_c_2_0(self):
+        coffee_machine = CoffeeMachine()
+        result = coffee_machine.make_coffee()
+        result_one_sugar = coffee_machine.add_sugar(result)
+        result_two_sugar = coffee_machine.add_sugar(result_one_sugar)
+        result_three_sugar = coffee_machine.add_sugar(result_two_sugar)
+        self.assertEqual(result_three_sugar, "C:2:0")
+
 
 if __name__ == "__main__":
     unittest.main()
