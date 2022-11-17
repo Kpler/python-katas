@@ -37,3 +37,19 @@ def test_we_order_drink_and_sugars_properly():
     coffee_machine = CoffeeMachine()
     result = coffee_machine.generate_order(order_input)
     assert result == expected_order
+
+
+def test_order_coffee_with_money():
+    expected_result = "M:message-content"
+    drink_type = DrinkType.HOT_CHOCOLATE
+    order_input = Order(drink_type=drink_type, sugars=2)
+    coffee_machine = CoffeeMachine()
+    result = coffee_machine.generate_order(order_input)
+    assert result == expected_result
+
+
+
+
+
+
+
