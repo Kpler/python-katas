@@ -1,11 +1,15 @@
+import enum
 
-def make_order(type: str, number_of_sugar: int) -> str:
+class DrinkType(enum.Enum):
+    COFFEE: str = "C"
+    TEA: str = "T"
+    HOT_CHOCOLATE: str = "H"
+
+
+def make_order(type: DrinkType, number_of_sugar: int) -> str:
 
     is_no_sugar = number_of_sugar < 1
 
     sugar_string, stick_string = ("", "") if is_no_sugar else (str(number_of_sugar), "0")
 
-    return f"{type}:{sugar_string}:{stick_string}"
-
-
-class drink_type(enumerate):
+    return f"{type.value}:{sugar_string}:{stick_string}"
