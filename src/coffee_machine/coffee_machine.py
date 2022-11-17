@@ -1,6 +1,7 @@
 import dataclasses
 from enum import Enum
 
+
 class DrinkType(Enum):
     COFFEE = 'C'
     TEA = 'T'
@@ -14,6 +15,7 @@ class DrinkType(Enum):
         else:
             return 0.6
 
+
 @dataclasses.dataclass
 class Order:
     drink_type: DrinkType
@@ -22,6 +24,7 @@ class Order:
 
 
 class CoffeeMachine:
+    @staticmethod
     def generate_order(self, order: Order) -> str:
         sugars_str = "" if order.sugars == 0 else order.sugars.__str__()
         stick = "" if order.sugars == 0 else "0"
