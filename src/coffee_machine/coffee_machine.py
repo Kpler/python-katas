@@ -25,7 +25,7 @@ class Order:
 
 class CoffeeMachine:
     @staticmethod
-    def generate_order(self, order: Order) -> str:
+    def generate_order(order: Order) -> str:
         sugars_str = "" if order.sugars == 0 else order.sugars.__str__()
         stick = "" if order.sugars == 0 else "0"
         if order.money < order.drink_type.price():
