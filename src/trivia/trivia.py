@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from typing import Optional
+
 
 class Game:
     def __init__(self):
@@ -144,16 +146,19 @@ class Game:
 
 
 from random import randrange
+import random
 
-if __name__ == '__main__':
+
+def main(random_seed: Optional[int] = None):
+
+    if random_seed:
+        random.seed(random_seed)
+
     not_a_winner = False
-
     game = Game()
-
     game.add('Chet')
     game.add('Pat')
     game.add('Sue')
-
     while True:
         game.roll(randrange(5) + 1)
 
@@ -163,3 +168,7 @@ if __name__ == '__main__':
             not_a_winner = game.was_correctly_answered()
 
         if not not_a_winner: break
+
+
+if __name__ == '__main__':
+    main()
