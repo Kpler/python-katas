@@ -6,9 +6,9 @@ from src.gilded_rose.guilded_rose import Item, GildedRose
 def test_gilded_rose_approval_tests():
     verify_all_combinations(
         execute_update_quality,
-        [['Aged Brie'],
-        [1],
-        [1]]
+        [['Aged Brie', 'stuff', 'Sulfuras, Hand of Ragnaros', 'Backstage passes to a TAFKAL80ETC concert'],
+        [-1, 1, 6, 11],
+        [0, 1, 49, 50]]
     )
 
 
