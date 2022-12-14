@@ -1,0 +1,1 @@
+https://codingdojo.org/kata/Diamond/
