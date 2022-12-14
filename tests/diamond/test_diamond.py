@@ -1,4 +1,4 @@
-from diamond.diamond import make_diamond
+from src.diamond.diamond import make_diamond
 
 
 def test_print_diamond_with_a():
