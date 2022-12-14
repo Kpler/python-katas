@@ -1,5 +1,11 @@
 import pytest as pytest
 
 
-def test_diamons():
-    assert True == False
+def craft_diamond(widest_letter: str):
+    
+    pass
+
+
+def test_single_element_diamond():
+    diamond = craft_diamond('A')
+    assert diamond == 'A'
