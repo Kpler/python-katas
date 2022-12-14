@@ -11,6 +11,6 @@ def test_diamond_printer_b():
     assert result == ' A \nB B\n A \n'
 
 
-def test_diamond_printer_C():
+def test_diamond_printer_c():
     result = get_diamond('C')
     assert result == '  A  \n B B \nC   C\n B B \n  A  \n'
