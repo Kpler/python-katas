@@ -1,6 +1,4 @@
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 LINE_SEPARATOR = "\n"
 SPACE = " "
 EMPTY_STRING = ""
@@ -12,11 +10,11 @@ Diamond = list[str]
 def get_top_rows(letter: str) -> Diamond:
     top_rows: Diamond = []
 
-    input_letter_index = alphabet.index(letter)
+    input_letter_index = ALPHABET.index(letter)
     row_length = input_letter_index * 2 + 1
 
     for i in range(input_letter_index + 1):
-        letter_this_row = alphabet[i]
+        letter_this_row = ALPHABET[i]
         number_of_spaces_edge = input_letter_index - i
         number_of_spaces_in_the_middle = row_length - 2 - number_of_spaces_edge * 2
 
