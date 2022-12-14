@@ -36,7 +36,7 @@ def get_top_rows(letter: str) -> Diamond:
     return top_rows
 
 
-def get_rows(letter: str) -> Diamond:
+def get_diamond(letter: str) -> Diamond:
     top_rows = get_top_rows(letter)
     bottom_rows = list(reversed(top_rows[:-1]))
     all_rows = top_rows + bottom_rows
@@ -47,7 +47,7 @@ def diamond_to_string(diamond: Diamond) -> str:
     return LINE_SEPARATOR.join(diamond) + LINE_SEPARATOR
 
 
-def get_diamond(letter: str) -> str:
-    diamond = get_rows(letter)
+def get_diamond_string(letter: str) -> str:
+    diamond = get_diamond(letter)
     output_string = diamond_to_string(diamond)
     return output_string
