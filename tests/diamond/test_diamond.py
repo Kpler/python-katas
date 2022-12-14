@@ -2,16 +2,18 @@ from typing import Sequence
 
 
 def craft_diamond(widest_letter: str) -> Sequence[str]:
+    idx = max(1, ord(widest_letter) - ord('A'))
     if widest_letter == 'A':
-        return [widest_letter]
+        return [widest_letter * 1]
     elif widest_letter == 'C':
-        return ['A', 'BB', f"{widest_letter}{widest_letter}", 'BB', 'A']
+        return ['A', 'B' * idx, f"{widest_letter * idx}", 'B' * idx, 'A']
     else:
         return ['A', f"{widest_letter}{widest_letter}", 'A']
 
 #    for (ordinal, index) (ord(widest_letter) to ord('A')) :
 #        yield  char(element) * index
 
+    # return [letter * max(1, index) for letter, index]
 
 
 def test_first_element_diamond():
