@@ -12,4 +12,7 @@ def make_diamond(diamond_letter):
             line += chr(i + 65)
         lines_list.append(line)
 
-    return lines_list
+    # Here, concat the reverted list (without the last entry)
+    #    val finalList = list ++ list.dropRight(1).reverse
+
+    return "\n".join(lines_list + lines_list[:-1][::-1])

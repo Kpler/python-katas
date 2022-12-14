@@ -7,5 +7,8 @@ def test_print_diamond_with_a():
 
 
 def test_print_diamond_with_ab():
-    expected = " A \nB B\n A "
+    expected = " A\nB B\n A"
+
+    print(make_diamond("B"))
+
     assert make_diamond("B") == expected
