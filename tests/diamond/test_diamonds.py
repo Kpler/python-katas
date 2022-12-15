@@ -18,3 +18,7 @@ def test_iteration_count_given_B():
 
 def test_iteration_count_given_C():
     assert get_iteration_count("C") == 3
+
+
+def test_build_diamond_row_B():
+    assert build_diamond_row(2) ==
