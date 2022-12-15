@@ -8,11 +8,18 @@ def build_diamond(letter: str) -> str:
 
     result = ""
     for i in range(iteration_count):
-        number_of_spaces = iteration_count - 1
-        row = ""
-        result += row
+        build_diamond_row(iteration_count, result)
 
     return letter
+
+
+def get_letters_later(iteration_count: int)-> str:
+    return "".join(ALPHABET[:iteration_count])
+
+def build_diamond_row(iteration_count, result):
+    number_of_spaces = iteration_count - 1
+    row = ""
+    result += row
 
 
 def get_iteration_count(letter: str) -> int:
