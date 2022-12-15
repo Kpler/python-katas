@@ -25,6 +25,14 @@ class TestDiamond(unittest.TestCase):
 
         self.assertEqual(' A \nB B\n A ', redirected_stdout)
 
+
+    def test_build_diamond(self):
+        input = 'A'
+        diamond = build_diamond(input)
+        
+        self.assertEqual('A', diamond)
+
+
 '''
 Input: B
         A
