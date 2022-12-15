@@ -1,3 +1,2 @@
-
-def print_diamond(input: str):
+def print_diamond(input: str) -> None:
     print(input)
