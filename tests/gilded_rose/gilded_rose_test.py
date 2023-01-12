@@ -18,9 +18,20 @@ class TestGildedRose(unittest.TestCase):
   def test_update_quality(self):
     i = Item('test_1', 0, 0)
     j = Item('test_2', 1, 1)
-    gr = GildedRose([i, j])
+    l = Item('Aged Brie', 1, 1)
+    
+    gr = GildedRose([i, j, l])
     self.assertEquals(gr.items[0].name, "test_1")
     self.assertEquals(gr.items[1].name, "test_2")
+    self.assertEquals(gr.items[1].quality, 1)
+    gr.update_quality()
+    self.assertEquals(gr.items[1].quality, 0)
+    self.assertEquals(gr.items[2].quality, 2)
 
   def test_combo_guilded_rose(self):
     ...
+
+  def do_update_quality(name, sell_in, quality):
+    i=Item(name, sell_in, quality)
+    gr = GildedRose([i])
+    gr.update_quality()
