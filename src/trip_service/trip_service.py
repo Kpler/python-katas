@@ -8,7 +8,7 @@ from src.trip_service.exceptions import (
 
 class TripService:
     @staticmethod
-    def get_trips_by_user(user):
+    def get_trips_by_user(user:User)-> list[Trip]:
         logged_user = _get_logged_user()
         if not logged_user:
             raise UserNotLoggedInException()
@@ -43,7 +43,7 @@ class User:
 
 
 # Functions
-def _get_logged_user():
+def _get_logged_user() -> User:
     raise DependantClassCallDuringUnitTestException(
         "_get_logged_user() should not be called in an unit test"
     )
