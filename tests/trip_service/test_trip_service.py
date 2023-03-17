@@ -11,7 +11,7 @@ def test_empty_trip_service() -> None:
         assert trips == []
 
 
-@patch("src.trip_service.trip_service._get_logged_user", return_value=True)
+@patch("src.trip_service.trip_service._get_logged_user")
 @patch("src.trip_service.trip_service._find_trips_by_user")
 def test_single_trip_service(mocker_find_trips_by_user, mocked_get_logged_user) -> None:
     logged_user = User()
