@@ -1,21 +1,28 @@
-from src.trip_service.exceptions import DependantClassCallDuringUnitTestException, UserNotLoggedInException
+import dataclasses
+
+from src.trip_service.exceptions import (
+    DependantClassCallDuringUnitTestException,
+    UserNotLoggedInException,
+)
 
 
 class TripService:
-    def get_trips_by_user(self, user):
+    @staticmethod
+    def get_trips_by_user(user):
         logged_user = _get_logged_user()
+        if not logged_user:
+            raise UserNotLoggedInException()
+
         is_friend = False
         trip_list = []
-        if logged_user:
-            for friend in user.get_friends():
-                if friend is logged_user:
-                    is_friend = True
-                    break
-            if is_friend:
-                trip_list = _find_trips_by_user(user)
-            return trip_list
-        else:
-            raise UserNotLoggedInException()
+
+        for friend in user.friends:
+            if friend is logged_user:
+                is_friend = True
+                break
+        if is_friend:
+            trip_list = _find_trips_by_user(user)
+        return trip_list
 
 
 # Classes
@@ -23,10 +30,10 @@ class Trip:
     pass
 
 
+@dataclasses.dataclass(kw_only=True)
 class User:
-    def __init__(self):
-        self.trips = []
-        self.friends = []
+    friends: list = dataclasses.field(default_factory=list)
+    trips: list = dataclasses.field(default_factory=list)
 
     def add_friend(self, user):
         self.friends.append(user)
