@@ -4,8 +4,13 @@ from src.trip_service.trip_service import TripService, User
 
 
 @pytest.fixture
-def user():
-    pass
+def user_with_no_friends():
+    user = User()
+    return user
+
+@pytest.fixture
+def user_with_one_friend():
+    mock = mocker.patch("src.trip_service.trip_service._get_logged_user")
 
 
 def test_userservice_should_raise_exception_when_user_is_none(mocker):
@@ -27,3 +32,5 @@ def test_trip_service_should_return_empty_list_when_user_has_no_friends(mocker):
 	trips = trip_service.get_trips_by_user(user)
 
 	assert len(trips) == 0
+        
+
