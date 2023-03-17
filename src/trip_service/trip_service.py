@@ -6,6 +6,7 @@ from src.trip_service.exceptions import (
     UserNotLoggedInException,
 )
 
+
 # Classes
 class Trip:
     pass
