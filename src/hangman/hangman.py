@@ -15,5 +15,7 @@ class Hangman:
         current_result = "".join([l if l in self.right_guesses else "_" for l in self.word])
         if self.wrong_guesses:
             current_result += f" # {self.wrong_guesses}"
+        if current_result == self.word:
+            current_result = f"You found the word! (\"{self.word}\")"
+            self.status = "won"
         return current_result
-

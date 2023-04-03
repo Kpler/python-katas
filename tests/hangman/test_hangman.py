@@ -1,13 +1,5 @@
 from src.hangman.hangman import Hangman
 
-"""
-TODO: implement test for state machine
-ongoing
-loss
-victory
-ended
-"""
-
 
 def test_initialisation():
     hangman = Hangman(
@@ -34,13 +26,13 @@ def test_guess_wrong():
     assert hangman.status == "ongoing"
 
 
-def test_guess_wrong():
+def test_win_status():
     hangman = Hangman(
         word="hangman"
     )
-    test_guess = hangman.guess(letter="h")
-    test_guess = hangman.guess(letter="a")
-    test_guess = hangman.guess(letter="n")
-    test_guess = hangman.guess(letter="g")
+    _ = hangman.guess(letter="h")
+    _ = hangman.guess(letter="a")
+    _ = hangman.guess(letter="n")
+    _ = hangman.guess(letter="g")
     test_guess = hangman.guess(letter="m")
     assert test_guess == f"You found the word! (\"hangman\")"
