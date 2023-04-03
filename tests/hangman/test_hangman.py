@@ -14,7 +14,8 @@ def test_guess_not_found():
     game = Hangman('kata')
     curr = game.guess('z')
 
-    assert curr == '____'
+    assert curr == '____ # z'
+    assert game.mistakes_left == 5
 
 def test_mistakes():
     game = Hangman('')

@@ -6,4 +6,5 @@ class Hangman:
         self.mistakes_left = self.MISTAKES_ALLOWED
 
     def guess(self, letter: str) -> str:
+
         return 'k___'
