@@ -3,14 +3,15 @@ from src.hangman.hangman import Hangman
 
 def test_guess_found():
     game = Hangman('kata')
-    curr = game.guess('k')
-    assert curr == 'k___'
+    assert game.guess('a') == '_a_a'
+    assert game._mistakes_left == 6
+    assert game.guess('k') == 'ka_a'
+
 
 
 def test_guess_not_found():
     game = Hangman('kata')
-    curr = game.guess('z')
-    assert curr == '____ # z'
+    assert game.guess('z') == '____ # z'
     assert game._mistakes_left == 5
 
 
