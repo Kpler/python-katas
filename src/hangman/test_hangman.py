@@ -14,7 +14,9 @@ class Hangman:
         postfix = f"# {self.previous_miss}" if self.previous_miss else ""
         if letter in self.word_to_guess:
             letter_index = self.word_to_guess.index(letter)
-            self.status[letter_index * 2] = letter
+            status_list = list(self.status)
+            status_list[letter_index * 2] = letter
+            self.status = "".join(status_list).strip()
         return f'{self.status}{postfix}'
 
 
