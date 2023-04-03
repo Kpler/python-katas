@@ -36,3 +36,13 @@ def test_win_status():
     _ = hangman.guess(letter="g")
     test_guess = hangman.guess(letter="m")
     assert test_guess == f"You found the word! (\"hangman\")"
+
+def test_lose_status():
+    hangman = Hangman(
+        word="hangman",
+        max_wrong_guesses=1
+    )
+    # TODO: fix this
+    test_guess = hangman.guess(letter="z")
+    test_guess = hangman.guess(letter="j")
+    assert test_guess == f"You lost! (\"hangman\")"
