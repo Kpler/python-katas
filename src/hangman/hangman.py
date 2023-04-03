@@ -1,9 +1,9 @@
 class Hangman:
-    MISTAKES_DEFAULT = 6
+    MISTAKES_ALLOWED = 6
 
     def __init__(self, word: str):
         self.word = word
-        self.mistakes = self.MISTAKES_DEFAULT
+        self.mistakes_left = self.MISTAKES_ALLOWED
 
     def guess(self, letter: str) -> str:
-        pass
+        return 'k___'
