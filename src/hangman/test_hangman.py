@@ -12,10 +12,10 @@ class Hangman:
         if letter not in self.word_to_guess:
             self.previous_miss = letter
         postfix = f"# {self.previous_miss}" if self.previous_miss else ""
-        if letter == "w":
-            return "w _ _ _"
-        else:
-            return f'{self.status}{postfix}'
+        if letter in self.word_to_guess:
+            letter_index = self.word_to_guess.index(letter)
+            self.status[letter_index * 2] = letter
+        return f'{self.status}{postfix}'
 
 
 def test_fails_on_letter_not_present_and_displays_the_letter():
