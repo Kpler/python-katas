@@ -1,4 +1,7 @@
-letters =  list(string.ascii_upercase)
+import string
 
-def build_diamond(letter: str)->str:
-    return letter
+letters = list(string.ascii_uppercase)
+
+
+def build_diamond(letter: str) -> str:
+    pass
