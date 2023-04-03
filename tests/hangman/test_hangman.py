@@ -20,6 +20,6 @@ def test_guess():
     hangman = Hangman(
         word="hangman"
     )
-    hangman.guess(letter="a")
-    assert hangman.word == "__a__a_"
+    test_guess = hangman.guess(letter="a")
+    assert test_guess == "_a___a_"
     assert hangman.status == "ongoing"
