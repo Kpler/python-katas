@@ -1,4 +1,4 @@
-from src.calculator.calculator import calculate
+from src.calculator.calculator import calculate, find_operators
 
 
 def test_calculator_add():
@@ -8,3 +8,6 @@ def test_calculator_add():
 
 def test_calculator_substraction():
     assert calculate("1 - 1") == 0
+
+def test_find_operators():
+    assert find_operators("1 - 1 + 3") == ["-", "+"]
