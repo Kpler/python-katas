@@ -2,10 +2,10 @@ from typing import Tuple
 
 
 def calculate(expression: str) -> float:
-    return 0
+    return sum(find_operands(expression))
 
 def find_operands(string: str) -> Tuple[int,int]:
-    pass
+    return list(map(int, string.split("+")))
 
 def find_operator(string: str) -> str:
     pass
