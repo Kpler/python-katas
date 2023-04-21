@@ -27,3 +27,7 @@ def test_complex_addition_3_elements():
 
 def test_substract():
     assert calculate("2 - 1") == 1
+
+
+def test_substract_equals_1():
+    assert calculate("2 + -1") == 1
