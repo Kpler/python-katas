@@ -1,5 +1,5 @@
 from operator import add, mul, sub
-
+import re
 
 operations = {
     "+": add,
@@ -8,17 +8,29 @@ operations = {
 }
 
 
-def calculate(expression: str) -> float:
+def calculate(expression: str) -> int:
     tokens = expression.split()
     head = tokens[0]
 
-    if (len(tokens) % 2) == 0:
-        raise ValueError("No enough element")
+    foo(tokens)
 
     return rec(int(head), tokens[1:])
 
 
-def rec(acc: int, tokens: list[str]) -> float:
+def foo(tokens: list[str]) -> None:
+    if (len(tokens) % 2) == 0:
+        raise ValueError("No enough element")
+
+    branches = re.split(r"[\s+-\*\/]", " ".join(tokens))
+    for branch in branches:
+        if len(branch) == 1:
+            yield branch
+        else:
+            head = branch.split()[0]
+            yield rec(int(head), branch.split()[1:])
+
+
+def rec(acc: int, tokens: list[str]) -> int:
     if len(tokens) == 0:
         return acc
     else:
