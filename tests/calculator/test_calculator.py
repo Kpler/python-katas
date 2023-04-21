@@ -14,8 +14,7 @@ def test_calculator_with_empty_expression():
 
 
 def test_calculator_with_one_expression():
-    assert calculate("1") == 1
-
+    assert calculate("10000+1") == 1
 
 def test_addition_3_elements():
     assert calculate("1 + 1 + 1") == 3

@@ -1,11 +1,16 @@
 def calculate(expression: str) -> float:
-    if not expression:
+    expr_no_space = remove_spaces(expression)
+    if not expr_no_space:
         return 0
-    return get_first_number(expression) + calculate(expression[4:])
+    first_number, remainder_expr = get_first_number_and_expression(expr_no_space)
+    return first_number + calculate(remainder_expr)
 
 
-def get_first_number(expression: str) -> float:
+def remove_spaces(expression: str) -> str:
+    return expression.replace(" ", "")
+
+def get_first_number_and_expression(expression: str) -> float:
     operator = "+"
-    print(float(expression.replace(" ", "").split(operator)))
-    return float(expression.replace(" ", "").split(operator)[0])
+    split_values = expression.split(operator)
+    return float(split_values[0]), "+".join(split_values[1:])
 
