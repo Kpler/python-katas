@@ -1,10 +1,12 @@
-from operator import add, sub
+from operator import add, mul, sub
 
 
 operations = {
- "+": add,
- "-": sub,
+    "+": add,
+    "-": sub,
+    "*": mul,
 }
+
 
 def calculate(expression: str) -> float:
     tokens = expression.split()
@@ -27,7 +29,7 @@ def rec(acc: int, tokens: list[str]) -> float:
             operation = operations[op]
         except:
             raise ValueError(f"Unexpected Operation {op}")
-       
+
         try:
             a = int(head)
 
