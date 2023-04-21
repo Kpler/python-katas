@@ -11,3 +11,6 @@ def test_calculator_single_number_1():
 
 def test_calculator_add():
     assert calculate("1 + 1") == 2
+
+def test_calculator_sub():
+    assert calculate("3 - 2") == 1
