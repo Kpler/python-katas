@@ -10,18 +10,17 @@ operations = {
 
 def calculate(expression: str) -> int:
     tokens = expression.split()
-    head = tokens[0]
 
-    foo(tokens)
+    bs = list(bar(tokens))
+    print(bs)
+    head = bs[0]
+    return rec(int(head), bs[1:])
 
-    return rec(int(head), tokens[1:])
-
-
-def foo(tokens: list[str]) -> None:
+def bar(tokens: list[str]) -> None:
     if (len(tokens) % 2) == 0:
         raise ValueError("No enough element")
 
-    branches = re.split(r"[\s+-\*\/]", " ".join(tokens))
+    branches = [t.split("-") for t in " ".join(tokens).split("+")]
     for branch in branches:
         if len(branch) == 1:
             yield branch
