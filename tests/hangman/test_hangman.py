@@ -20,16 +20,21 @@ def test_hangman_successfully_finished():
     h = Hangman("toto")
     h.guess("o")
     result = h.guess("t")
-    print(result)
     assert result == "# You found the word! (toto)"
     
 def test_hangman_has_ended():
     h = Hangman("toto")
     h.guess("o")
+    h.guess("t")
     result = h.guess("t")
-    result = h.guess("t")
-    print(result)
     assert result == "# The game has ended"
+
+def test_hangman_is_failed():
+    h = Hangman("toto")
+    for s in list('abcdef'):
+        h.guess(s)
+    result = h.guess("g")
+    assert result == "# You got hung! The word was toto."
 
 
 if __name__ == "__main__":
