@@ -7,4 +7,11 @@ def test_create_hangman():
 
     assert hangman.guess("w") == "w _ _ _"
     assert hangman.guess("o") == "w o _ _"
+    assert hangman.guess("r") == "w o r _"
 
+
+def test_number_of_mistakes():
+    hangman = Hangman("word")
+    assert hangman.number_of_mistakes == 0
+    hangman.guess("a")
+    assert hangman.number_of_mistakes == 1
