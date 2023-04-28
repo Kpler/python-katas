@@ -10,8 +10,12 @@ class Hangman:
     def to_str(self):
         return ''.join(self.prompt) + f'{"  # " if self.errors else ""}' + ''.join(self.errors)
 
+    def _is_finished(self):
+        return self.prompt == list(self.result)
 
     def guess(self, s: str) -> str:
+        if self._is_finished():
+            return "# The game has ended"
 
         if s not in self.result:
             self.errors.add(s)
@@ -23,10 +27,8 @@ class Hangman:
         for idx in indexes:
             self.prompt[idx] = s
         
-        if self.prompt == self.result:
-            print(f"Success: {self.result}")
-        else:
-            print(self.prompt)
+        if self._is_finished():
+            return  f"# You found the word! ({self.result})"
 
         return self.to_str()
         
