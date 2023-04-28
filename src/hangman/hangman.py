@@ -5,7 +5,12 @@ class Hangman:
         self.result = result
         self.prompt = list("_" * len(self.result))
         self.errors = set()
-        
+
+
+    def to_str(self):
+        return ''.join(self.prompt) + f'{"  # " if self.errors else ""}' + ''.join(self.errors)
+
+
     def guess(self, s: str) -> str:
 
         if s not in self.result:
@@ -13,8 +18,8 @@ class Hangman:
 
         def c(i: int) -> bool:
             return s == self.result[i]
-        l = list(range(len(self.result)))
-        indexes = filter(c, l)
+
+        indexes = filter(c, range(len(self.result)))
         for idx in indexes:
             self.prompt[idx] = s
         
@@ -23,5 +28,5 @@ class Hangman:
         else:
             print(self.prompt)
 
-        return ''.join(self.prompt) + ' # ' + ''.join(self.errors)
+        return self.to_str()
         

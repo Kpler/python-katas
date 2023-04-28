@@ -20,7 +20,8 @@ def test_hangman_successfully_finished():
     h = Hangman("toto")
     h.guess("o")
     result = h.guess("t")
-    assert result == "_o_o"
+    assert result == "# You found the word! (toto)"
+
 
 if __name__ == "__main__":
     test_hangman_success()
