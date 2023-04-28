@@ -15,3 +15,14 @@ def test_number_of_mistakes():
     assert hangman.number_of_mistakes == 0
     hangman.guess("a")
     assert hangman.number_of_mistakes == 1
+
+def test_game_over():
+    hangman = Hangman("word")
+    hangman.guess("a")
+    hangman.guess("a")
+    hangman.guess("a")
+    hangman.guess("a")
+    hangman.guess("a")
+    assert hangman.guess("a") == "Game over"
+
+

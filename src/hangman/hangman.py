@@ -8,6 +8,8 @@ class Hangman:
     def guess(self, letter: str) -> str:
         if letter not in self.word:
             self.number_of_mistakes = self.number_of_mistakes + 1
+            if self.number_of_mistakes == 6:
+                return "Game over"
         self.game_state.add(letter)
         return self.__get_game_state()
 
