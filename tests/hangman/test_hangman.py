@@ -7,3 +7,4 @@ def test_create_hangman():
 
     assert hangman.guess("w") == "w _ _ _"
     assert hangman.guess("o") == "w o _ _"
+
