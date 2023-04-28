@@ -39,6 +39,8 @@ in pkgs.mkShell {
     python -m venv $KPLER_VENV_DIR
     PATH="$KPLER_VENV_DIR/bin:$PATH"
 
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${pkgs.glibc.out}/lib"
+
     # install project dependencies
     echo -e "\033[1;33m\n>>> UPDATING PYTHON DEPENDENCIES\033[0m"
     pip install --quiet --no-cache-dir --upgrade pip setuptools wheel
