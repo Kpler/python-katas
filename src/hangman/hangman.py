@@ -13,8 +13,14 @@ class Hangman:
     def _to_str(self):
         return ''.join(self.prompt) + f'{" # " if self.errors else ""}' + ''.join(self.errors)
 
-    def _is_finished(self):
+    def _is_finished_in_success(self):
         return self.prompt == list(self.result)
+
+    def _is_finished_in_failed(self):
+        return len(self.errors) > self.MAX_MISTAKES_ALLOWED
+
+    def _is_finished(self):
+        return self._is_finished_in_success() or self._is_finished_in_failed()
 
     def guess(self, s: str) -> str:
         if self._is_finished():
@@ -22,7 +28,7 @@ class Hangman:
 
         if s not in self.result:
             self.errors.add(s)
-            if len(self.errors) > self.MAX_MISTAKES_ALLOWED:
+            if self._is_finished_in_failed():
                 return f"# You got hung! The word was {self.result}."
 
         def c(i: int) -> bool:
@@ -32,8 +38,8 @@ class Hangman:
         for idx in indexes:
             self.prompt[idx] = s
         
-        if self._is_finished():
-            return  f"# You found the word! ({self.result})"
+        if self._is_finished_in_success():
+            return f"# You found the word! ({self.result})"
 
         return self._to_str()
         

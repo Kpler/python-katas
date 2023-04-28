@@ -1,14 +1,17 @@
-from hangman.hangman import Hangman
+from src.hangman.hangman import Hangman
+
 
 def test_hangman_success():
     h = Hangman("toto")
     result = h.guess("o")
     assert result == "_o_o"
-    
+
+
 def test_hangman_fail():
     h = Hangman("toto")
     result = h.guess("u")
     assert result == "____ # u"
+
 
 def test_hangman_fail_twice():
     h = Hangman("toto")
@@ -21,7 +24,8 @@ def test_hangman_successfully_finished():
     h.guess("o")
     result = h.guess("t")
     assert result == "# You found the word! (toto)"
-    
+
+
 def test_hangman_has_ended():
     h = Hangman("toto")
     h.guess("o")
@@ -29,12 +33,22 @@ def test_hangman_has_ended():
     result = h.guess("t")
     assert result == "# The game has ended"
 
+
 def test_hangman_is_failed():
     h = Hangman("toto")
     for s in list('abcdef'):
         h.guess(s)
     result = h.guess("g")
     assert result == "# You got hung! The word was toto."
+
+
+def test_hangman_is_failed_has_ended():
+    h = Hangman("toto")
+    for s in list('abcdef'):
+        h.guess(s)
+    h.guess("g")
+    result = h.guess("h")
+    assert result == "# The game has ended"
 
 
 if __name__ == "__main__":
