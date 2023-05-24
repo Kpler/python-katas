@@ -6,3 +6,7 @@ def test_calculator_add():
 
 def test_calculator_addition_multiple():
     assert calculate("1 + 2 + 3") == 6
+
+
+def test_calculator_subtract():
+    assert calculate("1 - 1") == 0
