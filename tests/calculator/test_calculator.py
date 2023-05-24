@@ -21,6 +21,8 @@ def test_calculator_add(provided_string: str, expected_result: float):
     "provided_string,expected_result",
      [
          ("2 * 3", 6),
+         ("2 * 5 * 10", 100),
+         ("2 + 3 * 4", 14),
      ]
 )
 def test_calculator_mult(provided_string: str, expected_result: float):

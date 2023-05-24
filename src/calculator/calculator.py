@@ -1,4 +1,10 @@
 def calculate(expression: str) -> float:
+    value = 1
+    if "*" in expression:
+        for element in expression.split(" * "):
+            value *= calculate(element)
+        return value
+
     operator_list = ["+", "-", "*"]
     next_operator = "+"
     value = 0
