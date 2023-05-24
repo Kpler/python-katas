@@ -1,3 +1,12 @@
 def calculate(expression: str) -> float:
-    expression.replace(" ", "")
-    return 2
+    split = expression.split(" ")
+    nextOperator = "+"
+    value = 0
+    for element in split:
+
+        if nextOperator == "+":
+            value += float(element)
+        else:
+            value -= float(element)
+
+    return value
