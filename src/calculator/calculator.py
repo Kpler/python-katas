@@ -1,5 +1,7 @@
 from enum import Enum
 from operator import add, sub
+
+
 class Operators(Enum):
     ADD = "+"
     SUBTRACT = "-"
@@ -13,18 +15,18 @@ class Operators(Enum):
             case Operators.SUBTRACT:
                 return sub
 
+
 def calculate(expression: str) -> float:
     split_expression = expression.split(" ")
 
-    unresolved_opertors: list[Operators]= [Operators.ADD]
+    unresolved_operators: list[Operators] = [Operators.ADD]
 
-    sum = 0
+    result = 0
     for n in split_expression:
         if n in [o.value for o in Operators]:
-            unresolved_opertors.append(Operators(n))
-        elif n.isdigit():
-            operation = unresolved_opertors.pop()
-            sum = operation.map_to_operator()(sum, float(n))
+            unresolved_operators.append(Operators(n))
+        elif n.lstrip('-').isdigit():
+            operation = unresolved_operators.pop()
+            result = operation.map_to_operator()(result, float(n))
 
-        print(unresolved_opertors)
-    return sum
+    return result
