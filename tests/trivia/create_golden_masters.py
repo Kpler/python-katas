@@ -9,12 +9,17 @@ DIRECTORY = "golden_masters"
 
 if __name__ == '__main__':
 
-    # How to redirect stdout?
-    f = io.StringIO()
-    with redirect_stdout(f):
-        main(1, ["Chet", "Pat", "Sue"])
-    redirected_stdout = f.getvalue()
+    inputs_to_files = [
+        ([1, ["Chet", "Pat", "Sue"]], "test_1")
+    ]
 
-    # How to write a file?
-    with open("test_1.txt", "w") as e:
-        e.write(redirected_stdout)
+    for inputs, file in inputs_to_files:
+        # How to redirect stdout?
+        f = io.StringIO()
+        with redirect_stdout(f):
+            main(*inputs)
+        redirected_stdout = f.getvalue()
+
+        # How to write a file?
+        with open(f"{DIRECTORY}/{file}.txt", "w") as e:
+            e.write(redirected_stdout)

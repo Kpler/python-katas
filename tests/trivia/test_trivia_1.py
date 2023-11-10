@@ -18,7 +18,4 @@ def test_trivia(file_name, inputs):
     with open(file_name, "r") as e:
         file_name_stdout = e.read()
 
-    
-
-
-    
+    assert redirected_stdout == file_name_stdout
