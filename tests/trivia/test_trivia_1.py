@@ -7,7 +7,7 @@ an_example_to_use_parametrize = [("test_1.txt", [1, ["Chet", "Pat", "Sue"]])]
 
 
 @pytest.mark.parametrize("file_name, inputs", an_example_to_use_parametrize)
-def test_trivia(file_name, inputs):
+def test_trivia_first_run(file_name, inputs):
     assert file_name == "test_1.txt"
 
     f = io.StringIO()
@@ -19,3 +19,4 @@ def test_trivia(file_name, inputs):
         file_name_stdout = e.read()
 
     assert redirected_stdout == file_name_stdout
+

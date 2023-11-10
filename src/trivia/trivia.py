@@ -26,9 +26,6 @@ class Game:
     def create_rock_question(self, index):
         return "Rock Question %s" % index
 
-    def is_playable(self):
-        return self.how_many_players >= 2
-
     def add(self, player_name):
         self.players.append(player_name)
         self.places[self.how_many_players] = 0
@@ -171,4 +168,4 @@ def main(random_seed: Optional[int], players: List[str]):
 
 
 if __name__ == '__main__':
-    main(1, ["Chet", "Pat", "Sue"])
+    main(3, ["Chet", "Pat", "Sue"])
