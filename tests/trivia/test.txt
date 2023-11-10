@@ -1,0 +1,1 @@
+Here is a console log which is redirected

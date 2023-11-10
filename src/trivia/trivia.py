@@ -171,4 +171,4 @@ def main(random_seed: Optional[int], players: List[str]):
 
 
 if __name__ == '__main__':
-    main(None, ["Chet", "Pat", "Sue"])
+    main(1, ["Chet", "Pat", "Sue"])
