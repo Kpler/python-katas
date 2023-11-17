@@ -1,8 +1,18 @@
-import pytest as pytest
+import hashlib
+import pytest
+import sys
 
-an_example_to_use_parametrize = [42, 42, 42]
+from src.trivia.trivia import main
 
+@pytest.mark.run_these_please
+def test_trivia():
 
-@pytest.mark.parametrize("example", an_example_to_use_parametrize)
-def test_trivia(example):
-    assert 42 == example
+    with open("current_test_output.txt", "w") as e:
+        sys.stdout = e
+        for i in range(1, 10):
+            main(i, ["Chet", "Pat", "Sue"])
+
+    golden_hash = hashlib.md5(open('golden_master.txt', 'rb').read()).hexdigest()
+    current_output_hash = hashlib.md5(open('current_test_output.txt', 'rb').read()).hexdigest()
+
+    assert golden_hash == current_output_hash
