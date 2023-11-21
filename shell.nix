@@ -9,9 +9,9 @@
 # Report issues on slack #tech-help-nix
 let
   nixpkgs = builtins.fetchTarball {
-    name   = "nixos-21.11-20220312";
-    url    = "https://github.com/NixOS/nixpkgs/archive/bacbfd7.tar.gz";
-    sha256 = "1nlrizg1bxzihrhy4yfdjigpcg808imp7m1rg7wivq18vln6g4j5";
+    name   = "nixos-23.05-20230814";
+    url    = "https://github.com/NixOS/nixpkgs/archive/720e61ed8de1.tar.gz";
+    sha256 = "0ii10wmm8hqdp7bii7iza58rjaqs4z3ivv71qyix3qawwxx48hw9";
   };
   pkgs = import nixpkgs { };
 
