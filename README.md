@@ -42,7 +42,7 @@ After an hour, having a micro retro is a good thing: (3 words)
 - Return on time invested between 0 and 3?
 - what did we do that I feel we should continue to do more of?
 
-### Checklist before beginning
+### Checklist before beginning 
 
 1) clone the repo
 2) do nix-shell
