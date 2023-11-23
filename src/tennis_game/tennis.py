@@ -1,5 +1,7 @@
 class Player:
-    pass
+
+    def __init__(self ):
+        self.score=0
 
 
 class Game:
