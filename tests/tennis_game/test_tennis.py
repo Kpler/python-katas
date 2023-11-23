@@ -79,3 +79,12 @@ def test_advantage_player_2() -> None:
     helper_deuce(game=game)
     game.register_ball_winner(player=2)
     assert game.score() == "advantage player 2"
+
+
+def test_back_to_deuce() -> None:
+    # TODO: fix this
+    game = TennisGame()
+    helper_deuce(game=game)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=2)
+    assert game.score() == "deuce"
