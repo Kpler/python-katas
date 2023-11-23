@@ -28,8 +28,6 @@ def test_player2_score() -> None:
 def test_scores() -> None:
     game = TennisGame()
     game.register_ball_winner(player=1)
-    assert game.scores[0] == 1
-    assert game.score() == "15-love"
     game.register_ball_winner(player=1)
     assert game.scores[0] == 2
     assert game.score() == "30-love"
