@@ -15,11 +15,12 @@ class TennisGame():
         self.scores = [0, 0]
 
     def score(self):
-        if self.scores[0] >= 3 and self.scores[0] == self.scores[1]:
+        advantage_game = min(self.scores) >= 3
+        if advantage_game and self.scores[0] == self.scores[1]:
             return "deuce"
-        elif self.scores[0] >= 3 and self.scores[1] >= 3 and self.scores[0] > self.scores[1]:
+        elif advantage_game and self.scores[0] > self.scores[1]:
             return "advantage player 1"
-        elif self.scores[0] >= 3 and self.scores[1] >= 3 and self.scores[0] < self.scores[1]:
+        elif advantage_game and self.scores[0] < self.scores[1]:
             return "advantage player 2"
         else:
             return f"{self.score_table[self.scores[0]]}-{self.score_table[self.scores[1]]}"
