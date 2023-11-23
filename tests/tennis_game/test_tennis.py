@@ -82,7 +82,6 @@ def test_advantage_player_2() -> None:
 
 
 def test_back_to_deuce() -> None:
-    # TODO: fix this
     game = TennisGame()
     helper_deuce(game=game)
     game.register_ball_winner(player=1)
