@@ -1,5 +1,5 @@
-from src.tennis_game.tennis_game import TennisGame
-
+from src.tennis_game.tennis_game import TennisGame, GameEndedException
+import pytest
 
 def test_initial_state() -> None:
     """Test that the initial state of the game is correct."""
@@ -37,3 +37,15 @@ def test_scores() -> None:
     game.register_ball_winner(player=1)
     assert game.scores[0] == 4
     assert game.score() == "win-love"
+
+
+def test_end_set() -> None:
+    game = TennisGame()
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    with pytest.raises(GameEndedException):
+        game.register_ball_winner(player=1)
+    with pytest.raises(GameEndedException):
+        game.register_ball_winner(player=2)

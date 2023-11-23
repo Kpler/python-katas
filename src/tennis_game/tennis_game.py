@@ -1,3 +1,7 @@
+class GameEndedException(Exception):
+    pass
+
+
 class TennisGame():
     score_table = {
         0: "love",
@@ -17,4 +21,6 @@ class TennisGame():
         if player > len(self.scores):
             raise ValueError
         player_index = player - 1
+        if self.scores[player_index] > len(self.score_table):
+            raise GameEndedException
         self.scores[player_index] += 1
