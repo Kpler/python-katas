@@ -1,7 +1,11 @@
 class Player:
 
-    def __init__(self ):
+    def __init__(self):
         self.score=0
+        
+    def set_score(self, new_score: str) -> None:
+        self.score=new_score
+
 
 
 class Game:
@@ -12,4 +16,4 @@ class Game:
         return "0 - 0"
 
     def play(self, winner: int) -> int:
-        pass
+        self.player_1.set_score()
