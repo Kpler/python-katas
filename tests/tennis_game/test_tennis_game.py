@@ -15,5 +15,16 @@ def test_assure_scores(match):
 
 def test_points_dict(match):
     assert match.player1_score == "L"
-    match.player1_points += 1
+
+    match.add_point_to_player1()
+    assert match.player1_points == 1
     assert match.player1_score == "15"
+
+    match.add_point_to_player1()
+    assert match.player1_points == 2
+    assert match.player1_score == "30"
+
+    match.add_point_to_player1()
+    assert match.player1_points == 3
+    assert match.player1_score == "40"
+

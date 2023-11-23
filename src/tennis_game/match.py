@@ -13,6 +13,13 @@ class Match():
             3: "40",
         }
 
+    def add_point_to_player1(self):
+        self.player1_points += 1 
+        self.player1_score = self.point_dict.get(self.player1_points)
+    
+    def add_point_to_player2(self):
+        self.player2_points += 1 
+        self.player2_score = self.point_dict.get(self.player2_points)
 
     def game(self):
         pass
