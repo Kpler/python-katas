@@ -14,7 +14,12 @@ class Game:
     def score(self) -> str:
         if self.player_1_score == self.player_2_score:
             return "0 - 0"
+
+        if self.player_1_score == 4:
+            return "Player 1 Won"
+
         return "15 - 0"
 
     def play(self, winner: int) -> None:
-        self.player_1_score = 1
+        self.player_1_score += 1
+
