@@ -30,6 +30,8 @@ class TennisGame():
             raise ValueError
         player_index = player - 1
         for player_score in self.scores:
-            if player_score >= len(self.score_table) - 1:
+            player_reached_max_score = player_score >= len(self.score_table) - 1
+            player_far_enough_ahead = abs(self.scores[0] - self.scores[1]) > 1
+            if player_reached_max_score and player_far_enough_ahead:
                 raise GameEndedException
         self.scores[player_index] += 1
