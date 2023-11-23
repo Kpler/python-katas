@@ -4,7 +4,7 @@ from src.tennis_game.tennis import Game, Player
 def test_new_game():
     p1 = Player()
     p2 = Player()
-    game = Game(p1, p2)
+    game = Game()
 
     score = game.score()
 
@@ -15,6 +15,6 @@ def test_new_game():
 def test_non_new_game():
     p1 = Player()
     p2 = Player()
-    game = Game(p1, p2)
+    game = Game()
     game.play(winner=1)
     assert game.score() == "15 - 0"

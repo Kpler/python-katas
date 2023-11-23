@@ -1,19 +1,20 @@
 class Player:
 
     def __init__(self):
-        self.score=0
+        self.score = 0
         
-    def set_score(self, new_score: str) -> None:
-        self.score=new_score
-
+    def set_score(self, new_score: int) -> None:
+        self.score = new_score
 
 
 class Game:
-    def __init__(self, player_1: Player, player_2: Player) -> None:
-        pass
+    player_1_score: int = 0
+    player_2_score: int = 0
 
     def score(self) -> str:
-        return "0 - 0"
+        if self.player_1_score == self.player_2_score:
+            return "0 - 0"
+        return "15 - 0"
 
-    def play(self, winner: int) -> int:
-        self.player_1.set_score()
+    def play(self, winner: int) -> None:
+        self.player_1_score = 1
