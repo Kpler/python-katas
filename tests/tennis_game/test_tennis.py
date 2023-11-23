@@ -1,6 +1,7 @@
 from src.tennis_game.tennis_game import TennisGame, GameEndedException
 import pytest
 
+
 def test_initial_state() -> None:
     """Test that the initial state of the game is correct."""
     game = TennisGame()

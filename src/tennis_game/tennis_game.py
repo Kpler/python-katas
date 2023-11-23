@@ -19,6 +19,8 @@ class TennisGame():
             return "deuce"
         elif self.scores[0] >= 3 and self.scores[1] >= 3 and self.scores[0] > self.scores[1]:
             return "advantage player 1"
+        elif self.scores[0] >= 3 and self.scores[1] >= 3 and self.scores[0] < self.scores[1]:
+            return "advantage player 2"
         else:
             return f"{self.score_table[self.scores[0]]}-{self.score_table[self.scores[1]]}"
 
@@ -27,6 +29,6 @@ class TennisGame():
             raise ValueError
         player_index = player - 1
         for player_score in self.scores:
-          if player_score >= len(self.score_table) - 1:
-              raise GameEndedException
+            if player_score >= len(self.score_table) - 1:
+                raise GameEndedException
         self.scores[player_index] += 1
