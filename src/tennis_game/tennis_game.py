@@ -1,12 +1,10 @@
-
-
 class TennisGame():
-
     score_table = {
         0: "love",
         1: "15",
         2: "30",
-        3: "40"
+        3: "40",
+        4: "win"
     }
 
     def __init__(self):

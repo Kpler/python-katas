@@ -23,3 +23,19 @@ def test_player2_score() -> None:
     assert game.scores[0] == 0
     assert game.scores[1] == 1
     assert game.score() == "love-15"
+
+
+def test_scores() -> None:
+    game = TennisGame()
+    game.register_ball_winner(player=1)
+    assert game.scores[0] == 1
+    assert game.score() == "15-love"
+    game.register_ball_winner(player=1)
+    assert game.scores[0] == 2
+    assert game.score() == "30-love"
+    game.register_ball_winner(player=1)
+    assert game.scores[0] == 3
+    assert game.score() == "40-love"
+    game.register_ball_winner(player=1)
+    assert game.scores[0] == 4
+    assert game.score() == "win-love"
