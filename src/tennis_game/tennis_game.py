@@ -4,9 +4,9 @@ class TennisGame():
 
     score_table = {
         0: "love",
-        # 1: "15",
-        # 2: "30",
-        # 3: "40"
+        1: "15",
+        2: "30",
+        3: "40"
     }
 
     def __init__(self):
@@ -18,4 +18,5 @@ class TennisGame():
     def register_ball_winner(self, player):
         if player > len(self.scores):
             raise ValueError
-        self.scores[player] += 1
+        player_index = player - 1
+        self.scores[player_index] += 1
