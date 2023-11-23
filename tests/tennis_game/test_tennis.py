@@ -49,3 +49,10 @@ def test_end_set() -> None:
         game.register_ball_winner(player=1)
     with pytest.raises(GameEndedException):
         game.register_ball_winner(player=2)
+
+def test_deuce() -> None:
+    game = TennisGame()
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=2)

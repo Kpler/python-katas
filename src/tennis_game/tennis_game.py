@@ -21,6 +21,7 @@ class TennisGame():
         if player > len(self.scores):
             raise ValueError
         player_index = player - 1
-        if self.scores[player_index] > len(self.score_table):
-            raise GameEndedException
+        for player_score in self.scores:
+          if player_score >= len(self.score_table) - 1:
+              raise GameEndedException
         self.scores[player_index] += 1
