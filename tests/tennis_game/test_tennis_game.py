@@ -28,3 +28,6 @@ def test_points_dict(match):
     assert match.player1_points == 3
     assert match.player1_score == "40"
 
+def test_game_win_condition(match):
+    match.add_point_to_player1()
+    assert match.winner == "player1"
