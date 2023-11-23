@@ -16,20 +16,24 @@ class Match():
         self.winner = None
 
     def add_point_to_player1(self):
-        self.player1_points += 1 
+        self.player1_points += 1
         self.player1_score = self.point_dict.get(self.player1_points)
-    
+
     def add_point_to_player2(self):
-        self.player2_points += 1 
+        self.player2_points += 1
         self.player2_score = self.point_dict.get(self.player2_points)
 
-    def check_game_status(self):
+    def check_game_winner(self):
         diff = abs(self.player1_points - self.player2_points)
         if diff >= 2 and self.player1_points > 3:
             self.winner = "player1"
         elif diff >= 2 and self.player2_points > 3:
             self.winner = "player2"
 
+    def check_game_status(self):
+
+        elif diff == 0  and self.player1_points == 4:
+
     def game(self):
         pass
-        
+
