@@ -44,12 +44,12 @@ repos:
     hooks:
     -   id: forbid-crlf
     -   id: remove-crlf
--   repo: https://gitlab.com/pycqa/flake8
+-   repo: https://github.com/PyCQA/flake8
     # flake8 has to be placed after hooks modifying the code
     # (otherwise the reported line numbers would be inaccurate)
-    rev: 3.9.2
+    rev: 6.0.0
     hooks:
-      -   id: flake8
+        -   id: flake8
 -   repo: https://github.com/pre-commit/mirrors-mypy
     # mypy has to be placed after hooks modifying the code
     # (otherwise the reported line numbers would be inaccurate)
