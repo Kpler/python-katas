@@ -36,9 +36,8 @@ class Match():
             self.player1_score = self.point_dict.get(self.player1_points)
         if self.point_dict.get(self.player2_points):
             self.player2_score = self.point_dict.get(self.player2_points)
-        print(self.player1_score, self.player2_score)
 
-        # self.point_dict.get(self.player2_points)
+        return f"{self.player1_score} - {self.player2_score}"
 
     def game(self):
         pass

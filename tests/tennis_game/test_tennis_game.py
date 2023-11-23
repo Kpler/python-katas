@@ -58,3 +58,9 @@ def test_game_more_than_four_condition(match):
     match.check_game_winner()
     assert match.winner is None
 
+def test_check_game_status(match):
+    match.player1_points = 0
+    match.player2_points = 3
+
+    assert match.check_game_status() == "L - 40"
+
