@@ -49,3 +49,32 @@ def test_end_set() -> None:
         game.register_ball_winner(player=1)
     with pytest.raises(GameEndedException):
         game.register_ball_winner(player=2)
+
+
+def helper_deuce(game: TennisGame) -> None:
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=1)
+    game.register_ball_winner(player=2)
+    game.register_ball_winner(player=2)
+    game.register_ball_winner(player=2)
+
+
+def test_deuce() -> None:
+    game = TennisGame()
+    helper_deuce(game=game)
+    assert game.score() == "deuce"
+
+
+def test_advantage_player_1() -> None:
+    game = TennisGame()
+    helper_deuce(game=game)
+    game.register_ball_winner(player=1)
+    assert game.score() == "advantage player 1"
+
+
+def test_advantage_player_2() -> None:
+    game = TennisGame()
+    helper_deuce(game=game)
+    game.register_ball_winner(player=2)
+    assert game.score() == "advantage player 2"
