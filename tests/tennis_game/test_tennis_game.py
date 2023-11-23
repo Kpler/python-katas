@@ -30,4 +30,6 @@ def test_points_dict(match):
 
 def test_game_win_condition(match):
     match.add_point_to_player1()
+    match.check_game_status()
+    breakpoint()
     assert match.winner == "player1"
