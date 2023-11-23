@@ -16,5 +16,5 @@ def test_non_new_game():
     p1 = Player()
     p2 = Player()
     game = Game(p1, p2)
-
-
+    game.play(winner=1)
+    assert game.score() == "15 - 0"

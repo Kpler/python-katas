@@ -10,3 +10,6 @@ class Game:
 
     def score(self) -> str:
         return "0 - 0"
+
+    def play(self, winner: int) -> int:
+        pass
