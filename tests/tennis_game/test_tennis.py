@@ -31,6 +31,13 @@ def test_difference_less_than_one():
     game.player2.points = 4
     assert game.get_winner() is None
 
+def test_above_4_for_one_player():
+    game = Game()
+    game.player1.points = 5
+    game.player2.points = 3
+    assert game.get_winner() == game.player1.name
+
+
 
 def test_points_more_than_four():
     game = Game()
@@ -59,3 +66,15 @@ def test_single_player_scores_above_four():
     game.player2.points = 4
     assert game.print_score() == "player1 adv"
 
+def test_there_is_winner():
+    game = Game()
+    game.player1.points = 5
+    game.player2.points = 3
+    assert game.print_score() == "player1 winner"
+
+
+def test_deuce():
+    game = Game()
+    game.player1.points = 4
+    game.player2.points = 4
+    assert game.print_score() == "deuce"
