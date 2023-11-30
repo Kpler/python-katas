@@ -30,6 +30,7 @@ def test_score_tennis_game_increasing():
     game.ball_result(1)
     assert game.score == "40-love"
 
+
 @pytest.mark.parametrize("player", [1,2])
 def test_player_1_win(player):
     game = TennisGame()
@@ -38,3 +39,16 @@ def test_player_1_win(player):
     game.ball_result(player)
     game.ball_result(player)
     assert game.score == f"Player {player} won"
+
+
+def test_deuce():
+    game = TennisGame()
+    game.ball_result(1)
+    game.ball_result(1)
+    game.ball_result(1)
+    game.ball_result(2)
+    assert game.score == "40-15"
+    game.ball_result(2)
+    assert game.score == "40-30"
+    game.ball_result(2)
+    assert game.score == "deuce"

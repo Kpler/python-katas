@@ -22,14 +22,14 @@ class TennisGame:
 
 class Player:
     state = {
-        "love": "15",
-        "15": "30",
-        "30": "40",
-        "40": "win"
+        "love": lambda player2: "15",
+        "15": lambda player2: "30",
+        "30": lambda player2: "40" if player2.score != 40 else "deuce",
+        "40": lambda player2: "win"
     }
 
     def __init__(self):
         self.score = 'love'
 
     def win_ball(self):
-        self.score = self.state[self.score]
+        self.score = self.state[self.score](other_player)
