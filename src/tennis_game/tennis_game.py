@@ -1,10 +1,14 @@
 class TennisGame:
     def __init__(self):
+        self.p1 = Player()
+        self.p2 = Player()
         pass
 
     @property
     def score(self):
         return 'love-love'
+    
+    b
 
 
 class Player:

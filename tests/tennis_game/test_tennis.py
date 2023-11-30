@@ -19,3 +19,13 @@ def test_player_assume_nominal_scores():
     player.win_ball()
     assert player.score == 'win'
 
+def test_score_tennis_game_increasing():
+    
+    game = TennisGame()
+
+    # player 1 score 
+    game.ball_result(1)
+
+    assert game.score == "15-love"
+
+
