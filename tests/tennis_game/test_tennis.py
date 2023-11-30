@@ -30,4 +30,9 @@ def test_score_tennis_game_increasing():
     assert game.score == "40-love"
 
 def test_player_1_win():
-    # TODOL implement this
+    game = TennisGame()
+    game.ball_result(1)
+    game.ball_result(1)
+    game.ball_result(1)
+    game.ball_result(1)
+    assert game.score == "Player 1 won"

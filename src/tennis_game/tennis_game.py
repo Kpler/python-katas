@@ -5,6 +5,10 @@ class TennisGame:
 
     @property
     def score(self):
+        if self.p1.score == 'win':
+            return 'Player 1 won'
+        if self.p2.score == 'win':
+            return 'Player 2 won'
         return f"{self.p1.score}-{self.p2.score}"
 
     def ball_result(self, player: int):
