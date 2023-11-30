@@ -43,7 +43,7 @@ def test_player_1_win(player):
     assert game.score == f"Player {player} won"
 
 
-def test_deuce():
+def _arrive_to_deuce():
     game = TennisGame()
     game.ball_result(1)
     game.ball_result(1)
@@ -54,3 +54,15 @@ def test_deuce():
     assert game.score == "40-30"
     game.ball_result(2)
     assert game.score == "deuce"
+    return game
+
+
+def test_deuce():
+    return _arrive_to_deuce()
+
+
+def test_advantages():
+    game = _arrive_to_deuce()
+    game.ball_result(1)
+    assert game.score == "advantage player 1"
+#     TODO: fix this test
