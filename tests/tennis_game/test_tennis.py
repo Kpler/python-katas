@@ -53,9 +53,9 @@ def test_scores_below_four():
     assert game.print_score() == "30:15"
 
 
-def test_scores_below_four():
+def test_single_player_scores_above_four():
     game = Game()
-    game.player1.points = 2
-    game.player2.points = 1
-    assert game.print_score() == "30:15"
+    game.player1.points = 5
+    game.player2.points = 4
+    assert game.print_score() == "player1 adv"
 

@@ -19,7 +19,7 @@ class Game:
     def get_score(self, player):
         return self.score_table.get(player.points)
 
-    def get_winner(self):
+    def get_winner(self) -> str | None:
         if self.player1.points == 4 and (self.player1.points - self.player2.points) > 1:
             return self.player1.name
         elif self.player2.points == 4 and (self.player2.points - self.player1.points) > 1:
@@ -31,6 +31,9 @@ class Game:
         player.points += 1
 
     def print_score(self):
-        if self.player1.points < 4 and self.player2.points < 4:
+        winner = self.get_winner()
+        if winner:
+            return f"{winner} winner"
+        elif self.player1.points < 4 and self.player2.points < 4:
             return f"{self.score_table.get(self.player1.points)}:{self.score_table.get(self.player2.points)}"
-
+        elif self.player1.points > self.player2.points and (self.player1.points - )
