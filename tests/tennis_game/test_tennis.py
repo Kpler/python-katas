@@ -1,6 +1,7 @@
 from src.tennis_game.tennis_game import TennisGame
 from src.tennis_game.tennis_game import Player
 
+import pytest
 
 def test_initialise():
     game = TennisGame()
@@ -29,10 +30,11 @@ def test_score_tennis_game_increasing():
     game.ball_result(1)
     assert game.score == "40-love"
 
-def test_player_1_win():
+@pytest.mark.parametrize("player", [1,2])
+def test_player_1_win(player):
     game = TennisGame()
-    game.ball_result(1)
-    game.ball_result(1)
-    game.ball_result(1)
-    game.ball_result(1)
-    assert game.score == "Player 1 won"
+    game.ball_result(player)
+    game.ball_result(player)
+    game.ball_result(player)
+    game.ball_result(player)
+    assert game.score == f"Player {player} won"
