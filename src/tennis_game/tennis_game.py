@@ -5,6 +5,8 @@ class TennisGame:
 
     @property
     def score(self):
+        if "deuce" in [self.p1.score, self.p2.score]:
+            return "deuce"
         if self.p1.score == 'win':
             return 'Player 1 won'
         if self.p2.score == 'win':
@@ -24,7 +26,7 @@ class Player:
     state = {
         "love": lambda player2: "15",
         "15": lambda player2: "30",
-        "30": lambda player2: "40" if player2.score != 40 else "deuce",
+        "30": lambda player2: "40" if player2.score != "40" else "deuce",
         "40": lambda player2: "win"
     }
 
