@@ -2,17 +2,21 @@ class TennisGame:
     def __init__(self):
         self.p1 = Player()
         self.p2 = Player()
-        pass
 
     @property
     def score(self):
-        return 'love-love'
-    
-    b
+        return f"{self.p1.score}-{self.p2.score}"
+
+    def ball_result(self, player: int):
+        if player == 1:
+            self.p1.win_ball()
+        elif player == 2:
+            self.p2.win_ball()
+        else:
+            raise ValueError
 
 
 class Player:
-
     state = {
         "love": "15",
         "15": "30",
