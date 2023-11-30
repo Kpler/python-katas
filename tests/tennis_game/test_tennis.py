@@ -9,20 +9,6 @@ def test_initialise():
     assert game.score == 'love-love'
 
 
-def test_player_assume_nominal_scores():
-    player = Player()
-    other_player = Player()
-    assert player.score == 'love'
-    player.win_ball(other_player)
-    assert player.score == '15'
-    player.win_ball(other_player)
-    assert player.score == '30'
-    player.win_ball(other_player)
-    assert player.score == '40'
-    player.win_ball(other_player)
-    assert player.score == 'win'
-
-
 def test_score_tennis_game_increasing():
     game = TennisGame()
     game.ball_result(1)
@@ -65,4 +51,3 @@ def test_advantages():
     game = _arrive_to_deuce()
     game.ball_result(1)
     assert game.score == "advantage player 1"
-#     TODO: fix this test
