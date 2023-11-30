@@ -13,9 +13,9 @@ class TennisGame:
 
     def ball_result(self, player: int):
         if player == 1:
-            self.p1.win_ball()
+            self.p1.win_ball(self.p2)
         elif player == 2:
-            self.p2.win_ball()
+            self.p2.win_ball(self.p1)
         else:
             raise ValueError
 
@@ -31,5 +31,5 @@ class Player:
     def __init__(self):
         self.score = 'love'
 
-    def win_ball(self):
+    def win_ball(self, other_player):
         self.score = self.state[self.score](other_player)
