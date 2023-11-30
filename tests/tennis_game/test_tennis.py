@@ -6,8 +6,16 @@ def test_initialise():
     game = TennisGame()
     assert game.score == 'love-love'
 
+
 def test_player_assume_nominal_scores():
     player = Player()
     assert player.score == 'love'
     player.win_ball()
     assert player.score == '15'
+    player.win_ball()
+    assert player.score == '30'
+    player.win_ball()
+    assert player.score == '40'
+    player.win_ball()
+    assert player.score == 'win'
+
