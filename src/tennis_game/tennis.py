@@ -26,6 +26,13 @@ class Game():
     def get_score(self):
         if self.player1_score == self.player2_score and self.player1_score == "40":
             return "deuce"
+        elif self.player1_points > 3 and self.player2_points > 3:
+            print(self.player1_points, self.player2_points) 
+            diff = self.player1_points - self.player2_points  
+            if diff > 0:
+                return "advantage player1"
+            else:
+                return "advantage player2"
         return f"{self.score.get(self.player1_points)}-{self.score.get(self.player2_points)}"
 
     def play_one_ball(self):

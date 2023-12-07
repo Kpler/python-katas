@@ -46,3 +46,8 @@ def test_score_display():
     game.play_one_ball()
     assert game.get_score() in ["love-15", "15-love"]
 
+def test_score_advantage():
+    game = Game()
+    game.player1_points = 4
+    game.player2_points = 3
+    assert game.get_score() == "advantage player1"
