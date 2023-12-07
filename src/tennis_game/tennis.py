@@ -22,10 +22,12 @@ class Game:
             self._score[score_index] = '30'
         elif self._score[score_index] == '30':
             self._score[score_index] = '40'
-        elif self.advantage != player and self.advantage is not None:
-            self.advantage = None
-        # TODO: fix here
         elif self._score == ['40', '40']:
-            self.advantage = player
+            if self.advantage is None:
+                self.advantage = player
+            elif self.advantage != player:
+                self.advantage = None
+            else:
+                self.winner = player
         elif self._score[score_index] == '40':
             self.winner = player
