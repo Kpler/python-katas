@@ -23,16 +23,14 @@ def test_win_game_player1():
     game.player1_points = 3
     game.player1_score = "40"
     game.player1_points += 1
-    game.get_winner()
-    assert game.winner == "player1"
+    assert game.get_winner() == "player1"
 
 def test_win_game_player2():
     game = Game()
     game.player2_points = 3
     game.player2_score = "40"
     game.player2_points += 1
-    game.get_winner()
-    assert game.winner == "player2"
+    assert game.get_winner() == "player2"
 
 def test_deuce():
     game = Game()
@@ -41,3 +39,10 @@ def test_deuce():
     game.player1_score = "40"
     game.player2_score = "40"
     assert game.get_score() == "deuce"
+
+
+def test_score_display():
+    game = Game()
+    game.play_one_ball()
+    assert game.get_score() in ["love-15", "15-love"]
+
