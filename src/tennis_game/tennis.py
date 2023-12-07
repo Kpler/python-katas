@@ -34,6 +34,9 @@ class Game:
             self.winner = player
 
     def ball_result(self, player: int):
+        if self.winner:
+            raise Exception("Game is over")
+
         if not self.is_end_game():
             self.early_game_ball_result(player=player)
         else:

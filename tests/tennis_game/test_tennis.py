@@ -1,3 +1,5 @@
+import pytest
+
 from src.tennis_game.tennis import Game
 
 def _to_deuce() -> Game:
@@ -98,3 +100,13 @@ def test_win_player1_from_advantage():
     game.ball_result(player=1)
 
     assert game.score == "Player 1 wins"
+
+
+def test_game_over():
+    game = _to_deuce()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    assert game.score == "Player 1 wins"
+
+    with pytest.raises(Exception, match="Game is over"):
+        game.ball_result(player=2)
