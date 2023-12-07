@@ -28,7 +28,7 @@ class Game:
         else:
             self.winner = player
 
-    def ball_result(self, player: int):
+    def early_game_ball_result(self, player: int):
         score_index = player - 1
         if self._score[score_index] == 'love':
             self._score[score_index] = '15'
@@ -36,5 +36,9 @@ class Game:
             self._score[score_index] = '30'
         elif self._score[score_index] == '30':
             self._score[score_index] = '40'
-        elif self.is_end_game():
+
+    def ball_result(self, player: int):
+        if not self.is_end_game():
+            self.early_game_ball_result(player=player)
+        else:
             self.end_game_ball_result(player=player)
