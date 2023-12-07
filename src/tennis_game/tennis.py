@@ -1,5 +1,3 @@
-
-
 class Game:
     def __init__(self):
         self.score = 'love-love'

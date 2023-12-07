@@ -1,8 +1,10 @@
 from src.tennis_game.tennis import Game
 
+
 def test_init_game():
     game = Game()
     assert game.score == 'love-love'
+
 
 def test_player1_scoring():
     game = Game()
