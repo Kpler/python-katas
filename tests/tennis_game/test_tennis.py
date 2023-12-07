@@ -91,3 +91,16 @@ def test_back_to_deuce():
     game.ball_result(player=1)
 
     assert game.score == "deuce"
+
+def test_win_from_advantage():
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+
+    assert game.score == "Player 2 wins"
