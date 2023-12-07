@@ -59,7 +59,6 @@ def test_win_player_2():
 
 def test_deuce():
     game = _to_deuce()
-
     assert game.score == "deuce"
 
 

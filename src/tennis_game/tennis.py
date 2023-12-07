@@ -14,17 +14,11 @@ class Game:
             return "deuce"
         return '-'.join(self._score)
 
-    def is_end_game(self):
-        return '40' in self._score
-    
-    def end_game_ball_result(self, player: int):
-        if self._score == ['40', '40']:
-            if self.advantage is None:
-                self.advantage = player
-            elif self.advantage != player:
-                self.advantage = None
-            else:
-                self.winner = player
+    def update_advantage_game(self, player: int):
+        if self.advantage is None:
+            self.advantage = player
+        elif self.advantage != player:
+            self.advantage = None
         else:
             self.winner = player
 
@@ -36,9 +30,14 @@ class Game:
             self._score[score_index] = '30'
         elif self._score[score_index] == '30':
             self._score[score_index] = '40'
+        elif self._score[score_index] == '40':
+            self.winner = player
 
     def ball_result(self, player: int):
         if not self.is_end_game():
             self.early_game_ball_result(player=player)
         else:
-            self.end_game_ball_result(player=player)
+            self.update_advantage_game(player=player)
+
+    def is_end_game(self):
+        return self._score == ["40", "40"]
