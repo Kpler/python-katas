@@ -33,3 +33,11 @@ def test_win_game_player2():
     game.player2_points += 1
     game.get_winner()
     assert game.winner == "player2"
+
+def test_deuce():
+    game = Game()
+    game.player1_points = 3
+    game.player2_points = 3
+    game.player1_score = "40"
+    game.player2_score = "40"
+    assert game.get_score() == "deuce"

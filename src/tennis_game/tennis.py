@@ -16,6 +16,9 @@ class Game():
             self.winner = "player1"
         elif self.player2_points == 4:
             self.winner = "player2"
-        else:
-            self.winner = None
         return self.winner
+    
+    def get_score(self):
+        if self.player1_score == self.player2_score and self.player1_score == "40":
+            return "deuce"
+        return f"{self.player1_score}:{self.player2_score}"
