@@ -14,6 +14,9 @@ class Game:
             return "deuce"
         return '-'.join(self._score)
 
+    def is_end_game(self):
+        return '40' in self._score
+
     def ball_result(self, player: int):
         score_index = player - 1
         if self._score[score_index] == 'love':
