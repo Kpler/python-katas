@@ -34,3 +34,12 @@ def test_win_player_1():
     game.ball_result(player=1)
 
     assert game.score == "Player 1 wins"
+
+def test_win_player_2():
+    game = Game()
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+
+    assert game.score == "Player 2 wins"
