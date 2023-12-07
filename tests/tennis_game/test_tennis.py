@@ -66,3 +66,28 @@ def test_advantage_player_1():
     game.ball_result(player=1)
 
     assert game.score == "Advantage player 1"
+
+def test_advantage_player_2():
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+
+    assert game.score == "Advantage player 2"
+
+def test_back_to_deuce():
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=1)
+
+    assert game.score == "deuce"
