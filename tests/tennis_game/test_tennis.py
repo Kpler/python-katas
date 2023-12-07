@@ -10,3 +10,7 @@ def test_player1_scoring():
     game = Game()
     game.ball_result(player=1)
     assert game.score == '15-love'
+    game.ball_result(player=1)
+    assert game.score == '30-love'
+    game.ball_result(player=1)
+    assert game.score == '40-love'

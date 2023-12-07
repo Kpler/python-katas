@@ -1,6 +1,11 @@
 class Game:
     def __init__(self):
-        self.score = 'love-love'
+        self._score = ['love', 'love']
+
+    @property
+    def score(self):
+        return '-'.join(self._score)
 
     def ball_result(self, player: int):
-        self.score = '15-love'
+        # _increment_score(player)
+#
