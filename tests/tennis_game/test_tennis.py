@@ -1,5 +1,16 @@
 from src.tennis_game.tennis import Game
 
+def _to_deuce() -> Game:
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+
+    return game
+
 
 def test_init_game():
     game = Game()
