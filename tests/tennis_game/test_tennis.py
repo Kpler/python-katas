@@ -43,3 +43,26 @@ def test_win_player_2():
     game.ball_result(player=2)
 
     assert game.score == "Player 2 wins"
+
+def test_deuce():
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+
+    assert game.score == "deuce"
+
+def test_advantage_player_1():
+    game = Game()
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=1)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=2)
+    game.ball_result(player=1)
+
+    assert game.score == "Advantage player 1"
