@@ -7,5 +7,11 @@ class Game:
         return '-'.join(self._score)
 
     def ball_result(self, player: int):
-        # _increment_score(player)
-#
+        score_index = player - 1
+        if self._score[score_index] == 'love':
+            self._score[score_index] = '15'
+        elif self._score[score_index] == '15':
+            self._score[score_index] = '30'
+        elif self._score[score_index] == '30':
+            self._score[score_index] = '40'
+
