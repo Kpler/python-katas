@@ -29,3 +29,16 @@ def test_order_chocolate():
         drink_type="Chocolate",
         sugar=0
     ) == "H::"
+
+
+def test_order_coffee():
+    coffee_machine = CoffeeMachine()
+    assert coffee_machine.order(
+        drink_type="Coffee",
+        sugar=2
+    ) == "C:2:0"
+
+
+def test_message_content():
+    coffee_machine = CoffeeMachine()
+    assert coffee_machine.print_message("message") == "M:message"
