@@ -61,5 +61,6 @@ def test_insufficient_money():
                 sugar=2,
                 money=0.5
             )
-            is None
+        == "M:missing 0.1"
     )
+#     TODO: implement it
