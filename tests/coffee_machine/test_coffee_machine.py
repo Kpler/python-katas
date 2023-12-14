@@ -63,4 +63,15 @@ def test_insufficient_money():
             )
             == "M:missing 0.1"
     )
-#     TODO: implement it
+
+
+def test_order_orange_juice():
+    coffee_machine = CoffeeMachine()
+    assert (
+            coffee_machine.order(
+                drink_type="Orange Juice",
+                sugar=0,
+                money=0.6
+            )
+            == "O::"
+    )
