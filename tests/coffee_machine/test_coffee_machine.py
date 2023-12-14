@@ -14,6 +14,10 @@ def test_order_tea():
         sugar=1
     ) == "T:1:0"
 
+
 def test_order_tea_without_sugar():
-    # TODO
-    pass
+    coffee_machine = CoffeeMachine()
+    assert coffee_machine.order(
+        drink_type="Tea",
+        sugar=0
+    ) == "T::"
