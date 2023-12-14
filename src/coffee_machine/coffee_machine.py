@@ -1,12 +1,13 @@
 class CoffeeMachine:
-
-    def order(self, drink_type, sugar):
-        drink_dict ={
-            "Tea": "T",
-            "Coffee": "C",
-            "Chocolate": "H",
+    def order(self, drink_type, sugar, money):
+        drink_dict = {
+            "Tea": ["T", 0.4],
+            "Coffee": ["C", 0.6],
+            "Chocolate": ["H", 0.5],
         }
-        _drink = drink_dict.get(drink_type)
+        if money < drink_dict.get(drink_type)[1]:
+            return None
+        _drink = drink_dict.get(drink_type)[0]
         _sugar = sugar if sugar else ""
         _stick = "0" if sugar else ""
         command = f"{_drink}:{_sugar}:{_stick}"
