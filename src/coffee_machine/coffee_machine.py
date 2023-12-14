@@ -1,6 +1,8 @@
 class CoffeeMachine:
 
-    def order(self, order_string: str | None) -> str:
-        order_string.split(":")
-        return "Drink maker makes 1 tea with no sugar - and therefore no stick"
-
+    def order(self, drink_type, sugar, ):
+        _drink = "T" if drink_type == "Tea" else ""
+        _sugar = sugar
+        _stick = 0
+        command = f"{_drink}:{_sugar}:{_stick}"
+        return command
