@@ -21,3 +21,11 @@ def test_order_tea_without_sugar():
         drink_type="Tea",
         sugar=0
     ) == "T::"
+
+
+def test_order_chocolate():
+    coffee_machine = CoffeeMachine()
+    assert coffee_machine.order(
+        drink_type="Chocolate",
+        sugar=0
+    ) == "H::"
