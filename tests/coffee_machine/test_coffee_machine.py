@@ -12,4 +12,7 @@ def test_should_return_an_empty_string_when_no_order_passed():
 
 
 def test_should_return_tea_order_when_order_a_beverage_is_tea():
-    pass
+    coffee_machine = CoffeeMachine()
+    coffee_machine.send_order(beverage='tea')
+    order = coffee_machine.get_order()
+    assert order == "T::"
