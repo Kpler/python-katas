@@ -75,3 +75,19 @@ def test_order_orange_juice():
             )
             == "O::"
     )
+
+
+def test_order_extra_hot_coffee():
+    coffee_machine = CoffeeMachine()
+    assert (
+            coffee_machine.order(
+                drink_type="Coffee",
+                sugar=2,
+                money=0.6,
+                hot=True
+            )
+            == "Ch:2:0"
+    )
+
+
+
