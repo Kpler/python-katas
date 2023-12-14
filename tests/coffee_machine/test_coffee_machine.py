@@ -51,3 +51,15 @@ def test_order_coffee():
 def test_message_content():
     coffee_machine = CoffeeMachine()
     assert coffee_machine.print_message("message") == "M:message"
+
+
+def test_insufficient_money():
+    coffee_machine = CoffeeMachine()
+    assert (
+            coffee_machine.order(
+                drink_type="Coffee",
+                sugar=2,
+                money=0.5
+            )
+            is None
+    )
