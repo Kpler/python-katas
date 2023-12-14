@@ -3,9 +3,10 @@ from enum import Enum
 
 
 class Beverage(Enum):
-    TEA  = "tea"
+    TEA = "tea"
     COFFEE = "coffee"
     CHOCOLATE = "hot_chocolate"
+
 
 EMPTY_ORDER = ""
 
@@ -14,6 +15,7 @@ BEVERAGE_MAP = {
     Beverage.COFFEE: "C::",
     Beverage.CHOCOLATE: "H::",
 }
+
 
 @dataclass
 class CoffeeMachine:

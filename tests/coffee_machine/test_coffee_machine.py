@@ -30,3 +30,9 @@ def test_should_return_chocolate_order_when_order_a_beverage_is_chocolate():
     coffee_machine.send_order(beverage='hot_chocolate')
     order = coffee_machine.get_order()
     assert order == "H::"
+
+def test_should_return_tea_with_sugar_and_stick_when_ordered_tea_with_1_sugar():
+    coffee_machine = CoffeeMachine()
+    coffee_machine.send_order(beverage='tea', sugar_quantity=1)
+    order = coffee_machine.get_order()
+    assert order == "T:1:0"
