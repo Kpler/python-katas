@@ -1,14 +1,19 @@
 from dataclasses import dataclass
+from enum import Enum
 
 EMPTY_ORDER = ""
 TEA_ORDER = "T::"
 COFFEE_ORDER = "C::"
 CHOCOLATE_ORDER = "H::"
 
+class Beverage(Enum):
+    TEA  = "tea"
+    COFFEE = "coffee"
+    CHOCOLATE = "hot_chocolate"
 
 @dataclass
 class CoffeeMachine:
-    order_beverage: str = None
+    order_beverage: Beverage = None
 
     def get_order(self) -> str:
         if self.order_beverage == 'tea':
@@ -20,4 +25,5 @@ class CoffeeMachine:
         return EMPTY_ORDER
 
     def send_order(self, beverage: str) -> None:
+        beverage = Beverage(beverage)
         self.order_beverage = beverage
