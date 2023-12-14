@@ -16,3 +16,17 @@ def test_should_return_tea_order_when_order_a_beverage_is_tea():
     coffee_machine.send_order(beverage='tea')
     order = coffee_machine.get_order()
     assert order == "T::"
+
+
+def test_should_return_coffee_order_when_order_a_beverage_is_coffee():
+    coffee_machine = CoffeeMachine()
+    coffee_machine.send_order(beverage='coffee')
+    order = coffee_machine.get_order()
+    assert order == "C::"
+
+
+def test_should_return_chocolate_order_when_order_a_beverage_is_chocolate():
+    coffee_machine = CoffeeMachine()
+    coffee_machine.send_order(beverage='hot_chocolate')
+    order = coffee_machine.get_order()
+    assert order == "H::"
