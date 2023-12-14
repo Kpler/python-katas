@@ -4,6 +4,7 @@ class CoffeeMachine:
             "Tea": ["T", 0.4],
             "Coffee": ["C", 0.6],
             "Chocolate": ["H", 0.5],
+            "Orange Juice": ["O", 0.6]
         }
         drink_money = drink_dict.get(drink_type)[1]
         if money < drink_money:
