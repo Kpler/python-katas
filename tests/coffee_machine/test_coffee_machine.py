@@ -15,36 +15,36 @@ def test_order_tea():
 def test_order_tea_without_sugar():
     coffee_machine = CoffeeMachine()
     assert (
-        coffee_machine.order(
-            drink_type="Tea",
-            sugar=0,
-            money=0.4,
-        )
-        == "T::"
+            coffee_machine.order(
+                drink_type="Tea",
+                sugar=0,
+                money=0.4,
+            )
+            == "T::"
     )
 
 
 def test_order_chocolate():
     coffee_machine = CoffeeMachine()
     assert (
-        coffee_machine.order(
-            drink_type="Chocolate",
-            sugar=0,
-            money=0.6,
-        )
-        == "H::"
+            coffee_machine.order(
+                drink_type="Chocolate",
+                sugar=0,
+                money=0.6,
+            )
+            == "H::"
     )
 
 
 def test_order_coffee():
     coffee_machine = CoffeeMachine()
     assert (
-        coffee_machine.order(
-            drink_type="Coffee",
-            sugar=2,
-            money=0.6
-        )
-        == "C:2:0"
+            coffee_machine.order(
+                drink_type="Coffee",
+                sugar=2,
+                money=0.6
+            )
+            == "C:2:0"
     )
 
 
@@ -61,6 +61,6 @@ def test_insufficient_money():
                 sugar=2,
                 money=0.5
             )
-        == "M:missing 0.1"
+            == "M:missing 0.1"
     )
 #     TODO: implement it

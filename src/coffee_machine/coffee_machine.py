@@ -5,8 +5,9 @@ class CoffeeMachine:
             "Coffee": ["C", 0.6],
             "Chocolate": ["H", 0.5],
         }
-        if money < drink_dict.get(drink_type)[1]:
-            return None
+        drink_money = drink_dict.get(drink_type)[1]
+        if money < drink_money:
+            return self.print_message(f"missing {round(drink_money - money, 2)}")
         _drink = drink_dict.get(drink_type)[0]
         _sugar = sugar if sugar else ""
         _stick = "0" if sugar else ""
