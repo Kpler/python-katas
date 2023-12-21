@@ -11,7 +11,12 @@ class DrinkMaker:
     def make(
         self,
         order: Beverage | str,
+        sugar: int = 0
     ) -> str:
+        
+        if order == Beverage.TEA:
+            command = "T::"
+
         if order == Beverage.TEA:
             command = "T::"
         elif order == Beverage.HOT_CHOCOLATE:
