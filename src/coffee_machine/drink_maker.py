@@ -3,4 +3,10 @@ class DrinkMaker:
         self,
         drink: str,
     ):
-        return "T::"
+        if drink == "Tea":
+            command = "T::"
+        elif drink == "Hot Chocolate":
+            command = "H::"
+        else:
+            raise (Exception)
+        return command
