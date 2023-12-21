@@ -38,6 +38,8 @@ def test_sugar(sugar, output):
     "order,sugar,amount,output",
     [
         [Beverage.TEA, 0, 0.3, "M:Missing 0.1"],
+        [Beverage.TEA, 0, 0.4, "T::"],
+        [Beverage.COFFEE, 0, 0.5, "C::"],
     ],
 )
 def test_money(order,

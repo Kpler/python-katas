@@ -20,7 +20,7 @@ class DrinkMaker:
 
         if beverage_output is not None:
             if amount < 0.4:
-                return f"M:Missing {0.4- amount}"
+                return f"M:Missing {round((0.4 - amount),1)}"
             return f"{beverage_output}:{sugar_output}"
         else:
             return f"M:{order}"
