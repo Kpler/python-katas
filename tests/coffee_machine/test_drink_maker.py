@@ -21,7 +21,6 @@ def test_make_tea(
     assert command == output
 
 
-
 def test_sugar():
     drink_maker = DrinkMaker()
     command = drink_maker.make(order=Beverage.TEA, sugar=1)
