@@ -10,13 +10,15 @@ class Beverage(Enum):
 class DrinkMaker:
     def make(
         self,
-        drink: Beverage,
+        order: Beverage | str,
     ) -> str:
-        if drink == Beverage.TEA:
+        if order == Beverage.TEA:
             command = "T::"
-        elif drink == Beverage.HOT_CHOCOLATE:
+        elif order == Beverage.HOT_CHOCOLATE:
             command = "H::"
-        elif drink == Beverage.COFFEE:
+        elif order == Beverage.COFFEE:
             command = "C::"
+        else:
+            command = f"M:{order}"
 
         return command

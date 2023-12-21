@@ -9,6 +9,7 @@ from src.coffee_machine.drink_maker import DrinkMaker, Beverage
         [Beverage.TEA, "T::"],
         [Beverage.HOT_CHOCOLATE, "H::"],
         [Beverage.COFFEE, "C::"],
+        ["Hello World", "M:Hello World"],
     ],
 )
 def test_make_tea(
@@ -16,5 +17,5 @@ def test_make_tea(
     output,
 ):
     drink_maker = DrinkMaker()
-    command = drink_maker.make(drink=input)
+    command = drink_maker.make(order=input)
     assert command == output
