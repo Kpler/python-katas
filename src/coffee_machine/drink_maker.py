@@ -13,16 +13,19 @@ class DrinkMaker:
         order: Beverage | str,
         sugar: int = 0
     ) -> str:
-        
-        if order == Beverage.TEA:
-            command = "T::"
+        sugar_output = ""
+        if sugar == 0:
+            sugar_output = "0:"
+        elif sugar == 1:
+            sugar_output = "1:0"
+
 
         if order == Beverage.TEA:
-            command = "T::"
+            command = f"T:{sugar_output}"
         elif order == Beverage.HOT_CHOCOLATE:
-            command = "H::"
+            command = f"H:{sugar_output}"
         elif order == Beverage.COFFEE:
-            command = "C::"
+            command = f"C:{sugar_output}"
         else:
             command = f"M:{order}"
 
