@@ -33,3 +33,9 @@ def test_sugar(sugar, output):
     command = drink_maker.make(order=Beverage.TEA, sugar=sugar)
     assert command == output
 
+
+def test_money():
+    drink_maker = DrinkMaker()
+    command = drink_maker.make(order=Beverage.TEA, sugar=0, amount=0)
+
+    assert command == "M:Missing 0.4"
