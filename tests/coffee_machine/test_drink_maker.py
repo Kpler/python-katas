@@ -32,3 +32,4 @@ def test_sugar(sugar, output):
     drink_maker = DrinkMaker()
     command = drink_maker.make(order=Beverage.TEA, sugar=sugar)
     assert command == output
+

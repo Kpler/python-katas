@@ -9,12 +9,7 @@ class Beverage(Enum):
 
 class DrinkMaker:
     def make(self, order: Beverage | str, sugar: int = 0) -> str:
-        sugar_output = ""
-        if sugar == 0:
-            sugar_output = ":"
-        else:
-            sugar_output = f"{sugar}:0"
-
+        sugar_output = ":" if sugar == 0 else f"{sugar}:0"
         if order == Beverage.TEA:
             command = f"T:{sugar_output}"
         elif order == Beverage.HOT_CHOCOLATE:
@@ -23,5 +18,4 @@ class DrinkMaker:
             command = f"C:{sugar_output}"
         else:
             command = f"M:{order}"
-
         return command
