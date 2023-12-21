@@ -12,8 +12,8 @@ class DrinkMaker:
         sugar_output = ""
         if sugar == 0:
             sugar_output = ":"
-        elif sugar == 1:
-            sugar_output = "1:0"
+        else:
+            sugar_output = f"{sugar}:0"
 
         if order == Beverage.TEA:
             command = f"T:{sugar_output}"

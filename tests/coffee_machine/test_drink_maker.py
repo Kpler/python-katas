@@ -21,7 +21,14 @@ def test_make_tea(
     assert command == output
 
 
-def test_sugar():
+@pytest.mark.parametrize(
+    "sugar,output",
+    [
+        [1, "T:1:0"],
+        [2, "T:2:0"],
+    ],
+)
+def test_sugar(sugar, output):
     drink_maker = DrinkMaker()
-    command = drink_maker.make(order=Beverage.TEA, sugar=1)
-    assert command == "T:1:0"
+    command = drink_maker.make(order=Beverage.TEA, sugar=sugar)
+    assert command == output
