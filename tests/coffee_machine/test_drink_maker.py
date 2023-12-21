@@ -1,13 +1,14 @@
 import pytest
 
-from src.coffee_machine.drink_maker import DrinkMaker
+from src.coffee_machine.drink_maker import DrinkMaker, Beverage
 
 
 @pytest.mark.parametrize(
     "input,output",
     [
-        ["Tea", "T::"],
-        ["Hot Chocolate", "H::"],
+        [Beverage.TEA, "T::"],
+        [Beverage.HOT_CHOCOLATE, "H::"],
+        [Beverage.COFFEE, "C::"],
     ],
 )
 def test_make_tea(
