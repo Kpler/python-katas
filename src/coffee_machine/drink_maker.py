@@ -7,15 +7,18 @@ class Beverage(Enum):
     HOT_CHOCOLATE = "Hot Chocolate"
 
 
+BEVERAGE_TO_COMMAND = {
+    Beverage.TEA: "T",
+    Beverage.COFFEE: "C",
+    Beverage.HOT_CHOCOLATE: "H",
+}
+
 class DrinkMaker:
     def make(self, order: Beverage | str, sugar: int = 0) -> str:
         sugar_output = ":" if sugar == 0 else f"{sugar}:0"
-        if order == Beverage.TEA:
-            command = f"T:{sugar_output}"
-        elif order == Beverage.HOT_CHOCOLATE:
-            command = f"H:{sugar_output}"
-        elif order == Beverage.COFFEE:
-            command = f"C:{sugar_output}"
+        beverage_output = BEVERAGE_TO_COMMAND.get(order)
+
+        if beverage_output is not None:
+            return f"{beverage_output}:{sugar_output}"
         else:
-            command = f"M:{order}"
-        return command
+            return f"M:{order}"
