@@ -19,8 +19,8 @@ class DrinkMaker:
         beverage_output = BEVERAGE_TO_COMMAND.get(order)
 
         if beverage_output is not None:
-            if amount == 0:
-                return "M:Missing 0.4"
+            if amount < 0.4:
+                return f"M:Missing {0.4- amount}"
             return f"{beverage_output}:{sugar_output}"
         else:
             return f"M:{order}"

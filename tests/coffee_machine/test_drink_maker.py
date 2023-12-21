@@ -34,8 +34,18 @@ def test_sugar(sugar, output):
     assert command == output
 
 
-def test_money():
+@pytest.mark.parametrize(
+    "order,sugar,amount,output",
+    [
+        [Beverage.TEA, 0, 0.3, "M:Missing 0.1"],
+    ],
+)
+def test_money(order,
+               sugar,
+               amount,
+               output):
     drink_maker = DrinkMaker()
-    command = drink_maker.make(order=Beverage.TEA, sugar=0, amount=0)
+    command = drink_maker.make(order=order, sugar=sugar, amount=amount)
+    assert command == output
 
-    assert command == "M:Missing 0.4"
+
