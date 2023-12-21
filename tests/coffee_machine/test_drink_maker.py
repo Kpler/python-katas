@@ -9,6 +9,7 @@ from src.coffee_machine.drink_maker import DrinkMaker, Beverage
         [Beverage.TEA, "T::"],
         [Beverage.HOT_CHOCOLATE, "H::"],
         [Beverage.COFFEE, "C::"],
+        [Beverage.ORANGE_JUICE, "O::"],
         ["Hello World", "M:Hello World"],
     ],
 )

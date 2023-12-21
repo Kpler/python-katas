@@ -5,18 +5,21 @@ class Beverage(Enum):
     TEA = "Tea"
     COFFEE = "Coffee"
     HOT_CHOCOLATE = "Hot Chocolate"
+    ORANGE_JUICE = "Orange Juice"
 
 
 BEVERAGE_TO_COMMAND = {
     Beverage.TEA: "T",
     Beverage.COFFEE: "C",
     Beverage.HOT_CHOCOLATE: "H",
+    Beverage.ORANGE_JUICE: "O",
 }
 
 BEVERAGE_PRICES = {
     Beverage.TEA: 0.4,
     Beverage.COFFEE: 0.6,
     Beverage.HOT_CHOCOLATE: 0.5,
+    Beverage.ORANGE_JUICE: 0.6,
 }
 
 class DrinkMaker:
