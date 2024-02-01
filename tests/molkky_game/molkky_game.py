@@ -28,3 +28,10 @@ def test_correct_score_when_two_pins_down():
     game = game.pin_down([Pin.FOUR, Pin.FIVE])
 
     assert game.score == MolkkyScore(2)
+
+def test_score_fifty():
+    game = MolkkyGame()
+    for i in range(5):
+        game = game.pin_down([Pin.ELEVEN])
+        
+    assert game.score == MolkkyScore(25)

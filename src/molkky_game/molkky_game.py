@@ -2,6 +2,9 @@ from dataclasses import dataclass
 from enum import Enum
 
 
+MAX_SCORE = 50
+CHECKPOINT_SCORE = 25
+
 class Pin(Enum):
     ONE = 1
     TWO = 2
@@ -20,6 +23,12 @@ class Pin(Enum):
 @dataclass(frozen=True)
 class MolkkyScore:
     value: int
+
+    def append(self, score: "MolkkyScore") -> "MolkkyScore":
+        new_value = self.value + score.value
+        if new_value > MAX_SCORE:
+            new_value = CHECKPOINT_SCORE
+        return MolkkyScore(new_value)
 
 
 @dataclass(frozen=True)
@@ -42,4 +51,4 @@ class MolkkyGame:
     def pin_down(self, pin_numbers: list[Pin]) -> "MolkkyGame":
         score = PinScore(pin_numbers).get_score()
 
-        return MolkkyGame(score=MolkkyScore(self.score.value + score.value))
+        return MolkkyGame(score=self.score.append(score))
