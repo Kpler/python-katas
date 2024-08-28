@@ -1,4 +1,4 @@
-from supermarket_receipt.src.model_objects import Offer
+from supermarket_receipt.src.model_objects import Offer, BundleOffer
 from supermarket_receipt.src.receipt import Receipt
 
 
@@ -7,9 +7,13 @@ class Teller:
     def __init__(self, catalog):
         self.catalog = catalog
         self.offers = {}
+        self.bundle_offers = {}
 
     def add_special_offer(self, offer_type, product, argument):
         self.offers[product] = Offer(offer_type, product, argument)
+
+    def add_bundle_discount(self, products, discount_amount):
+        self.bundle_offers[products] = BundleOffer(products, discount_amount)
 
     def checks_out_articles_from(self, the_cart):
         receipt = Receipt()

@@ -17,6 +17,7 @@ def test_ten_percent_discount():
     catalog.add_product(toothbrush, 0.99)
     catalog.add_product(apples, 1.99)
     teller.add_special_offer(SpecialOfferType.TEN_PERCENT_DISCOUNT, toothbrush, 10.0)
+
     cart.add_item_quantity(apples, 2.5)
     receipt = teller.checks_out_articles_from(cart)
 
@@ -28,3 +29,18 @@ def test_ten_percent_discount():
     assert 1.99 == receipt_item.price
     assert 2.5 * 1.99 == pytest.approx(receipt_item.total_price, 0.01)
     assert 2.5 == receipt_item.quantity
+
+def explore():
+    catalog = FakeCatalog()
+    teller = Teller(catalog)
+    cart = ShoppingCart()
+
+    toothbrush = Product("toothbrush", ProductUnit.EACH)
+    toothpaste = Product("toothpaste", ProductUnit.EACH)
+    apples = Product("apples", ProductUnit.KILO)
+    catalog.add_product(toothbrush, 1)
+    catalog.add_product(apples, 2)
+    catalog.add_product(toothpaste, 3)
+
+    teller.add_bundle_discount([toothbrush, toothpaste], 1)
+
