@@ -14,3 +14,13 @@ On the command line, enter the `SupermarketReceipt-Refactoring-Kata/python` dire
 ```
 pytest
 ```
+
+## Optional: Running [TextTest](https://www.texttest.org/) Tests
+
+Install TextTest according to the [instructions](https://www.texttest.org/index.html#getting-started-with-texttest) (platform specific).
+
+On the command line, enter the `SupermarketReceipt-Refactoring-Kata/python` directory and run
+
+```
+texttest -a sr -d .
+```
