@@ -1,6 +1,6 @@
 import math
 
-from model_objects import ProductQuantity, SpecialOfferType, Discount
+from supermarket_receipt.src.model_objects import ProductQuantity, SpecialOfferType, Discount
 
 
 class ShoppingCart:

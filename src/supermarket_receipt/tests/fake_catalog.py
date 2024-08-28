@@ -1,4 +1,4 @@
-from catalog import SupermarketCatalog
+from supermarket_receipt.src.catalog import SupermarketCatalog
 
 
 class FakeCatalog(SupermarketCatalog):
