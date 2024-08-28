@@ -24,11 +24,18 @@ class SpecialOfferType(Enum):
     TWO_FOR_AMOUNT = 3
     FIVE_FOR_AMOUNT = 4
 
+
 class Offer:
     def __init__(self, offer_type, product, argument):
         self.offer_type = offer_type
         self.product = product
         self.argument = argument
+
+
+class BundleOffer:
+    def __init__(self, products, offer_type):
+        self.offer_type = offer_type
+        self.products = products
 
 
 class Discount:

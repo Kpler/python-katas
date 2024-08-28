@@ -8,18 +8,16 @@ from supermarket_receipt.tests.fake_catalog import FakeCatalog
 
 def test_ten_percent_discount():
     catalog = FakeCatalog()
-    toothbrush = Product("toothbrush", ProductUnit.EACH)
-    catalog.add_product(toothbrush, 0.99)
-
-    apples = Product("apples", ProductUnit.KILO)
-    catalog.add_product(apples, 1.99)
-
     teller = Teller(catalog)
-    teller.add_special_offer(SpecialOfferType.TEN_PERCENT_DISCOUNT, toothbrush, 10.0)
-
     cart = ShoppingCart()
-    cart.add_item_quantity(apples, 2.5)
 
+    toothbrush = Product("toothbrush", ProductUnit.EACH)
+    apples = Product("apples", ProductUnit.KILO)
+
+    catalog.add_product(toothbrush, 0.99)
+    catalog.add_product(apples, 1.99)
+    teller.add_special_offer(SpecialOfferType.TEN_PERCENT_DISCOUNT, toothbrush, 10.0)
+    cart.add_item_quantity(apples, 2.5)
     receipt = teller.checks_out_articles_from(cart)
 
     assert 4.975 == pytest.approx(receipt.total_price(), 0.01)
