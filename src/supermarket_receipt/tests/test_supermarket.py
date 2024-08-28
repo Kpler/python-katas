@@ -50,7 +50,7 @@ def test_explore():
     cart.add_item_quantity(toothpaste, 1)
 
     receipt = teller.checks_out_articles_from(cart)
+    assert 3.6 == pytest.approx(receipt.total_price(), 0.01)
 
-    price = receipt.total_price()
 
 
