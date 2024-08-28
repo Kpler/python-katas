@@ -48,9 +48,29 @@ def test_explore():
     # things to cart
     cart.add_item_quantity(toothbrush, 1)
     cart.add_item_quantity(toothpaste, 1)
-
     receipt = teller.checks_out_articles_from(cart)
     assert 3.6 == pytest.approx(receipt.total_price(), 0.01)
 
 
+
+def test_explore_2():
+    catalog = FakeCatalog()
+    teller = Teller(catalog)
+    cart = ShoppingCart()
+
+    # things to catalog
+    toothbrush = Product("toothbrush", ProductUnit.EACH)
+    toothpaste = Product("toothpaste", ProductUnit.EACH)
+    apples = Product("apples", ProductUnit.KILO)
+
+    catalog.add_product(toothbrush, 1)
+    catalog.add_product(toothpaste, 3)
+
+    teller.add_bundle_discount([toothbrush, toothpaste], 10)
+
+    # things to cart
+    cart.add_item_quantity(toothbrush, 2)
+    cart.add_item_quantity(toothpaste, 2)
+    receipt = teller.checks_out_articles_from(cart)
+    assert 7.2 == pytest.approx(receipt.total_price(), 0.01)
 

@@ -76,9 +76,9 @@ class ShoppingCart:
 
             for product in bundle:
                 if product in self._product_quantities.keys():
-                    #quantity = self._product_quantities[product]
+                    quantity = self._product_quantities[product]
                     unit_price = catalog.unit_price(product)
-                    discount += unit_price * bundle_offers[bundle].discount_percentage / 100.0
+                    discount += quantity*unit_price * bundle_offers[bundle].discount_percentage / 100.0
 
             if discount > 0:
                 bundle_offer = bundle_offers[bundle]
