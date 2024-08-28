@@ -33,8 +33,8 @@ class Offer:
 
 
 class BundleOffer:
-    def __init__(self, products, discount_amount):
-        self.discount_amount = discount_amount
+    def __init__(self, products, discount_percentage):
+        self.discount_percentage = discount_percentage
         self.products = products
 
 

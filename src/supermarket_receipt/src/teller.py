@@ -12,8 +12,8 @@ class Teller:
     def add_special_offer(self, offer_type, product, argument):
         self.offers[product] = Offer(offer_type, product, argument)
 
-    def add_bundle_discount(self, products, discount_amount):
-        self.bundle_offers[tuple(products)] = BundleOffer(products, discount_amount)
+    def add_bundle_discount(self, products, discount_percentage):
+        self.bundle_offers[tuple(products)] = BundleOffer(products, discount_percentage)
 
     def checks_out_articles_from(self, the_cart):
         receipt = Receipt()
@@ -26,5 +26,6 @@ class Teller:
             receipt.add_product(p, quantity, unit_price, price)
 
         the_cart.handle_offers(receipt, self.offers, self.catalog)
+        the_cart.handle_bundles(receipt, self.bundle_offers, self.catalog)
 
         return receipt

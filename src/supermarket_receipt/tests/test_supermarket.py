@@ -43,13 +43,14 @@ def test_explore():
     catalog.add_product(toothbrush, 1)
     catalog.add_product(toothpaste, 3)
 
-    teller.add_bundle_discount([toothbrush, toothpaste], 1)
-
+    teller.add_bundle_discount([toothbrush, toothpaste], 10)
 
     # things to cart
     cart.add_item_quantity(toothbrush, 1)
     cart.add_item_quantity(toothpaste, 1)
+
     receipt = teller.checks_out_articles_from(cart)
+
     price = receipt.total_price()
 
 
