@@ -13,7 +13,7 @@ class Teller:
         self.offers[product] = Offer(offer_type, product, argument)
 
     def add_bundle_discount(self, products, discount_amount):
-        self.bundle_offers[products] = BundleOffer(products, discount_amount)
+        self.bundle_offers[tuple(products)] = BundleOffer(products, discount_amount)
 
     def checks_out_articles_from(self, the_cart):
         receipt = Receipt()
