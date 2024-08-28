@@ -71,16 +71,9 @@ class ShoppingCart:
         """
         if products of bundle_offers are in the cart, apply the discount
         """
+        # count how many pairs belonging to boundles are in cart
+        pairs = []
         for bundle in bundle_offers.keys():
-            discount = 0
-
             for product in bundle:
                 if product in self._product_quantities.keys():
-                    quantity = self._product_quantities[product]
-                    unit_price = catalog.unit_price(product)
-                    discount += quantity*unit_price * bundle_offers[bundle].discount_percentage / 100.0
-
-            if discount > 0:
-                bundle_offer = bundle_offers[bundle]
-                discount = Discount(product, str(bundle_offer.discount_percentage) + " discount on bundle", -discount)
-                receipt.add_discount(discount)
+                    pairs.append(product)
