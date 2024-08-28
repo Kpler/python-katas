@@ -30,7 +30,7 @@ def test_ten_percent_discount():
     assert 2.5 * 1.99 == pytest.approx(receipt_item.total_price, 0.01)
     assert 2.5 == receipt_item.quantity
 
-def explore():
+def test_explore():
     catalog = FakeCatalog()
     teller = Teller(catalog)
     cart = ShoppingCart()
