@@ -35,14 +35,21 @@ def test_explore():
     teller = Teller(catalog)
     cart = ShoppingCart()
 
+    # things to catalog
     toothbrush = Product("toothbrush", ProductUnit.EACH)
     toothpaste = Product("toothpaste", ProductUnit.EACH)
     apples = Product("apples", ProductUnit.KILO)
+
     catalog.add_product(toothbrush, 1)
-    catalog.add_product(apples, 2)
     catalog.add_product(toothpaste, 3)
 
     teller.add_bundle_discount([toothbrush, toothpaste], 1)
 
-    
+
+    # things to cart
+    cart.add_item_quantity(toothbrush, 1)
+    cart.add_item_quantity(toothpaste, 1)
+    receipt = teller.checks_out_articles_from(cart)
+    price = receipt.total_price()
+
 
