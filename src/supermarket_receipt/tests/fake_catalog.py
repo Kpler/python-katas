@@ -1,4 +1,4 @@
-from catalog import SupermarketCatalog
+from src.catalog import SupermarketCatalog
 
 
 class FakeCatalog(SupermarketCatalog):
