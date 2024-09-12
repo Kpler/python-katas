@@ -1,5 +1,4 @@
 import approvaltests
-import pytest
 
 from src.model_objects import SpecialOfferType, Product
 from tests.receipt_printer import ReceiptPrinter

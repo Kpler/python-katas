@@ -2,7 +2,7 @@ from src.model_objects import Product
 
 
 class SupermarketCatalog:
-    def __init__(self):
+    def __init__(self) -> None:
         self.products: dict[str, Product] = {}
         self.prices: dict[str, float] = {}
 

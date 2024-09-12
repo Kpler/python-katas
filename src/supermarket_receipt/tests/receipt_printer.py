@@ -1,4 +1,4 @@
-from src.model_objects import ProductUnit
+from src.model_objects import ProductUnit, Discount
 from src.receipt import Receipt, ReceiptItem
 
 

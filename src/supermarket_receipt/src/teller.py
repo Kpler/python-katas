@@ -6,7 +6,7 @@ from src.shopping_cart import ShoppingCart
 
 class Teller:
 
-    def __init__(self, catalog):
+    def __init__(self, catalog: SupermarketCatalog) -> None:
         self.catalog: SupermarketCatalog = catalog
         self.offers: dict[Product, Offer] = {}
 

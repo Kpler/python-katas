@@ -15,7 +15,7 @@ class Receipt:
         self._discounts: list[Discount] = []
 
     def total_price(self) -> float:
-        total = 0
+        total = 0.0
         for item in self.items:
             total += item.total_price
         for discount in self.discounts:
