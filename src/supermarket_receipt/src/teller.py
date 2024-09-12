@@ -19,7 +19,8 @@ class Teller:
         self.offers[product] = Offer(offer_type, product, argument)
 
     @staticmethod
-    def handle_offers(cart, receipt, offers, catalog):
+    def handle_offers(cart, offers, catalog):
+        discounts: list[Discount] = []
         for p in cart._product_quantities.keys():
             quantity = cart._product_quantities[p]
             if p in offers.keys():
@@ -65,7 +66,9 @@ class Teller:
                     discount = Discount(p, str(x) + " for " + str(offer.argument), -discount_total)
 
                 if discount:
-                    receipt.add_discount(discount)
+                    discounts.append(discount)
+
+        return discounts
 
     def checks_out_articles_from(self, the_cart: ShoppingCart) -> Receipt:
         receipt = Receipt()
@@ -78,6 +81,8 @@ class Teller:
             price = quantity * unit_price
             receipt.add_product(p, quantity, unit_price, price)
 
-        self.handle_offers(the_cart, receipt, self.offers, self.catalog)
+        discounts = self.handle_offers(the_cart, self.offers, self.catalog)
+        for discount in discounts:
+            receipt.add_discount(discount)
 
         return receipt
