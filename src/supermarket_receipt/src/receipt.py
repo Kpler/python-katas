@@ -9,7 +9,7 @@ class ReceiptItem:
 
 class Receipt:
     def __init__(self):
-        self._items = []
+        self._items: list[ReceiptItem] = []
         self._discounts = []
 
     def total_price(self):
