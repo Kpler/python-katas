@@ -7,17 +7,17 @@ from src.teller import Teller
 
 
 @pytest.fixture
-def toothbrush():
+def toothbrush() -> Product:
     return Product("toothbrush", ProductUnit.EACH)
 
 
 @pytest.fixture
-def apples():
+def apples() -> Product:
     return Product("apples", ProductUnit.KILO)
 
 
 @pytest.fixture
-def catalog(toothbrush, apples):
+def catalog(toothbrush: Product, apples: Product) -> FakeCatalog:
     catalog = FakeCatalog()
     catalog.add_product(toothbrush, 0.99)
     catalog.add_product(apples, 1.99)
@@ -25,7 +25,7 @@ def catalog(toothbrush, apples):
 
 
 @pytest.fixture
-def teller(catalog):
+def teller(catalog: FakeCatalog) -> Teller:
     return Teller(catalog)
 
 

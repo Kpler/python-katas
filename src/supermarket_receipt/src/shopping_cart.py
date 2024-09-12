@@ -1,33 +1,38 @@
+from __future__ import annotations
 import math
 
-from src.model_objects import ProductQuantity, SpecialOfferType, Discount
+from src.model_objects import Offer, Product, ProductQuantity, SpecialOfferType, Discount
+from src.receipt import Receipt
+from src.catalog import SupermarketCatalog
 
 
 class ShoppingCart:
+    _items: list[ProductQuantity]
+    _product_quantities: dict[Product, float]
 
     def __init__(self):
         self._items = []
         self._product_quantities = {}
 
     @property
-    def items(self):
+    def items(self) -> list[ProductQuantity]:
         return self._items
 
-    def add_item(self, product):
+    def add_item(self, product: Product) -> None:
         self.add_item_quantity(product, 1.0)
 
     @property
-    def product_quantities(self):
+    def product_quantities(self) -> dict[Product, float]:
         return self._product_quantities
 
-    def add_item_quantity(self, product, quantity):
+    def add_item_quantity(self, product: Product, quantity: float) -> None:
         self._items.append(ProductQuantity(product, quantity))
         if product in self._product_quantities.keys():
             self._product_quantities[product] = self._product_quantities[product] + quantity
         else:
             self._product_quantities[product] = quantity
 
-    def handle_offers(self, receipt, offers, catalog):
+    def handle_offers(self, receipt: Receipt, offers: dict[Product, Offer], catalog: SupermarketCatalog) -> None:
         for p in self._product_quantities.keys():
             quantity = self._product_quantities[p]
             if p in offers.keys():
