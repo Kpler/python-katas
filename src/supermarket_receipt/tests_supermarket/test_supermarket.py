@@ -2,7 +2,7 @@ import approvaltests
 import pytest
 
 from src.model_objects import SpecialOfferType
-from tests.receipt_printer import ReceiptPrinter
+from tests_supermarket.receipt_printer import ReceiptPrinter
 
 
 def test_empty_basket(teller, cart, toothbrush, apples):

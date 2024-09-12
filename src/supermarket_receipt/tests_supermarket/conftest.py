@@ -1,6 +1,6 @@
 import pytest
 
-from tests.fake_catalog import FakeCatalog
+from tests_supermarket.fake_catalog import FakeCatalog
 from src.model_objects import Product, ProductUnit
 from src.shopping_cart import ShoppingCart
 from src.teller import Teller
