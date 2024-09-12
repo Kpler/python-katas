@@ -13,3 +13,8 @@ The starting position for this exercise contains the code for setting up the Tel
 - make a venv
 - install requirements, e.g. `python -m pip install -r requirements.txt`
 - use pytest to run the tests
+
+## Mypy
+
+You can validate the types with the following command: `mypy src/supermarket_receipt/`. Only a missing stub for appovaltests should be raised by default.
+
