@@ -6,17 +6,21 @@ from tests_supermarket.receipt_printer import ReceiptPrinter
 
 
 def test_empty_basket(teller, cart, toothbrush, apples):
+    # GIVEN an empty cart
+    # WHEN the teller checks out the articles
     receipt = teller.checks_out_articles_from(cart)
-
+    # THEN what about the receipt?
     approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
 
 
 def test_no_discount(teller, cart, toothbrush, apples):
+    # GIVEN a cart with 2.5 apples
+    # GIVEN a special offer on toothbrushes
     teller.add_special_offer(SpecialOfferType.TEN_PERCENT_DISCOUNT, toothbrush, 10.0)
     cart.add_item_quantity(apples, 2.5)
-
+    # WHEN the teller checks out the articles
     receipt = teller.checks_out_articles_from(cart)
-
+    # THEN what about the receipt?
     approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
 
 
