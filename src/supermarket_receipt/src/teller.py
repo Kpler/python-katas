@@ -3,6 +3,8 @@ from src.receipt import Receipt
 
 
 class Teller:
+    """The entity scanning the item.
+    """
 
     def __init__(self, catalog):
         self.catalog = catalog
