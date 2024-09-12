@@ -9,7 +9,7 @@ def test_empty_basket(teller, cart, toothbrush, apples):
     # GIVEN an empty cart
     # WHEN the teller checks out the articles
     receipt = teller.checks_out_articles_from(cart)
-    # THEN what about the receipt?
+    # THEN the receipt has no items and total is 0
     approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
 
 
@@ -20,7 +20,7 @@ def test_no_discount(teller, cart, toothbrush, apples):
     cart.add_item_quantity(apples, 2.5)
     # WHEN the teller checks out the articles
     receipt = teller.checks_out_articles_from(cart)
-    # THEN what about the receipt?
+    # THEN the receipt contains 2,5kg of apples and no discount appears
     approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
 
 
