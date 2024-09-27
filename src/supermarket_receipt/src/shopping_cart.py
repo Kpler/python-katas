@@ -3,8 +3,22 @@ import math
 from src.model_objects import ProductQuantity, SpecialOfferType, Discount
 
 
-class ShoppingCart:
+def get_discount_two_for_amount(
+    quantity_as_int,
+    offer,
+    unit_price,
+    p,
+    quantity,
+):
+    discount = None
+    if quantity_as_int >= 2:
+        total = offer.argument * (quantity_as_int / 2) + quantity_as_int % 2 * unit_price
+        discount_n = unit_price * quantity - total
+        discount = Discount(p, "2 for " + str(offer.argument), -discount_n)
+    return discount
 
+
+class ShoppingCart:
     def __init__(self):
         self._items = []
         self._product_quantities = {}
@@ -47,13 +61,13 @@ class ShoppingCart:
                 offer_dependent_magic_number = offer_type_nr_mapping[offer.offer_type]
 
                 if offer.offer_type == SpecialOfferType.TWO_FOR_AMOUNT:
-                    if quantity_as_int >= 2:
-                        total = (
-                            offer.argument * (quantity_as_int / offer_dependent_magic_number)
-                            + quantity_as_int % 2 * unit_price
-                        )
-                        discount_n = unit_price * quantity - total
-                        discount = Discount(p, "2 for " + str(offer.argument), -discount_n)
+                    discount = get_discount_two_for_amount(
+                        quantity_as_int,
+                        offer,
+                        unit_price,
+                        p,
+                        quantity,
+                    )
 
                 number_of_x = math.floor(quantity_as_int / offer_dependent_magic_number)
                 if offer.offer_type == SpecialOfferType.THREE_FOR_TWO and quantity_as_int > 2:
