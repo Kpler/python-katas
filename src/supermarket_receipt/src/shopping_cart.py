@@ -18,6 +18,14 @@ def get_discount_two_for_amount(
     return discount
 
 
+def get_discount_three_for_two(quantity_as_int, unit_price, p, quantity, number_of_x):
+    discount_amount = quantity * unit_price - (
+        (number_of_x * 2 * unit_price) + quantity_as_int % 3 * unit_price
+    )
+    discount = Discount(p, "3 for 2", -discount_amount)
+    return discount
+
+
 class ShoppingCart:
     def __init__(self):
         self._items = []
@@ -71,10 +79,13 @@ class ShoppingCart:
 
                 number_of_x = math.floor(quantity_as_int / offer_dependent_magic_number)
                 if offer.offer_type == SpecialOfferType.THREE_FOR_TWO and quantity_as_int > 2:
-                    discount_amount = quantity * unit_price - (
-                        (number_of_x * 2 * unit_price) + quantity_as_int % 3 * unit_price
+                    discount = get_discount_three_for_two(
+                        quantity_as_int=quantity_as_int,
+                        unit_price=unit_price,
+                        p=p,
+                        quantity=quantity,
+                        number_of_x=number_of_x,
                     )
-                    discount = Discount(p, "3 for 2", -discount_amount)
 
                 if offer.offer_type == SpecialOfferType.TEN_PERCENT_DISCOUNT:
                     discount = Discount(
