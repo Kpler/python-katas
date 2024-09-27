@@ -8,7 +8,7 @@ from tests.receipt_printer import ReceiptPrinter
 def test_empty_basket(teller, cart, toothbrush, apples):
     """
     Teller -> class -> interact with cart -> teller
-    Receipt printer -> receipt
+    (Receipt printer) -> receipt
     """
     receipt = teller.checks_out_articles_from(cart)
 
