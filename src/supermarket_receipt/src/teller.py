@@ -3,8 +3,7 @@ from src.receipt import Receipt
 
 
 class Teller:
-    """
-    """
+    """ """
 
     def __init__(self, catalog):
         self.catalog = catalog
@@ -23,7 +22,7 @@ class Teller:
             price = quantity * unit_price
             receipt.add_product(p, quantity, unit_price, price)
 
-        the_cart.handle_offers(receipt, self.offers, self.catalog)
+        receipt = the_cart.handle_offers(receipt, self.offers, self.catalog)
 
         return receipt
 
