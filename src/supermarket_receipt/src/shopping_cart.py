@@ -28,6 +28,15 @@ class ShoppingCart:
             self._product_quantities[product] = quantity
 
     def handle_offers(self, receipt, offers, catalog):
+        offer_type_nr_mapping = {
+            SpecialOfferType.THREE_FOR_TWO: 3,
+            SpecialOfferType.TWO_FOR_AMOUNT: 2,
+            SpecialOfferType.FIVE_FOR_AMOUNT: 5,
+            SpecialOfferType.TEN_PERCENT_DISCOUNT: 1,
+            # TODO: Check whether offer_type can be None.
+            # If not: Remove this dict entry.
+            None: 1,
+        }
         for p in self._product_quantities.keys():
             quantity = self._product_quantities[p]
             if p in offers.keys():
@@ -35,12 +44,9 @@ class ShoppingCart:
                 unit_price = catalog.unit_price(p)
                 quantity_as_int = int(quantity)
                 discount = None
-                offer_dependent_magic_number = 1
-                if offer.offer_type == SpecialOfferType.THREE_FOR_TWO:
-                    offer_dependent_magic_number = 3
+                offer_dependent_magic_number = offer_type_nr_mapping[offer.offer_type]
 
-                elif offer.offer_type == SpecialOfferType.TWO_FOR_AMOUNT:
-                    offer_dependent_magic_number = 2
+                if offer.offer_type == SpecialOfferType.TWO_FOR_AMOUNT:
                     if quantity_as_int >= 2:
                         total = (
                             offer.argument * (quantity_as_int / offer_dependent_magic_number)
@@ -48,9 +54,6 @@ class ShoppingCart:
                         )
                         discount_n = unit_price * quantity - total
                         discount = Discount(p, "2 for " + str(offer.argument), -discount_n)
-
-                if offer.offer_type == SpecialOfferType.FIVE_FOR_AMOUNT:
-                    offer_dependent_magic_number = 5
 
                 number_of_x = math.floor(quantity_as_int / offer_dependent_magic_number)
                 if offer.offer_type == SpecialOfferType.THREE_FOR_TWO and quantity_as_int > 2:
