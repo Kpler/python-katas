@@ -3,6 +3,8 @@ from src.receipt import Receipt
 
 
 class Teller:
+    """
+    """
 
     def __init__(self, catalog):
         self.catalog = catalog
