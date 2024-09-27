@@ -18,11 +18,51 @@ def get_discount_two_for_amount(
     return discount
 
 
-def get_discount_three_for_two(quantity_as_int, unit_price, p, quantity, number_of_x):
+def get_discount_three_for_two(
+    quantity_as_int,
+    unit_price,
+    p,
+    quantity,
+    number_of_x,
+):
     discount_amount = quantity * unit_price - (
         (number_of_x * 2 * unit_price) + quantity_as_int % 3 * unit_price
     )
     discount = Discount(p, "3 for 2", -discount_amount)
+    return discount
+
+
+def get_discount_five_per_amount(
+    number_of_x,
+    offer,
+    offer_dependent_magic_number,
+    p,
+    quantity,
+    quantity_as_int,
+    unit_price,
+):
+    discount_total = unit_price * quantity - (
+        offer.argument * number_of_x + quantity_as_int % 5 * unit_price
+    )
+    discount = Discount(
+        p,
+        str(offer_dependent_magic_number) + " for " + str(offer.argument),
+        -discount_total,
+    )
+    return discount
+
+
+def get_discount_ten_percent(
+    offer,
+    p,
+    quantity,
+    unit_price,
+):
+    discount = Discount(
+        p,
+        str(offer.argument) + "% off",
+        -quantity * unit_price * offer.argument / 100.0,
+    )
     return discount
 
 
@@ -88,20 +128,17 @@ class ShoppingCart:
                     )
 
                 if offer.offer_type == SpecialOfferType.TEN_PERCENT_DISCOUNT:
-                    discount = Discount(
-                        p,
-                        str(offer.argument) + "% off",
-                        -quantity * unit_price * offer.argument / 100.0,
-                    )
+                    discount = get_discount_ten_percent(offer, p, quantity, unit_price)
 
                 if offer.offer_type == SpecialOfferType.FIVE_FOR_AMOUNT and quantity_as_int >= 5:
-                    discount_total = unit_price * quantity - (
-                        offer.argument * number_of_x + quantity_as_int % 5 * unit_price
-                    )
-                    discount = Discount(
+                    discount = get_discount_five_per_amount(
+                        number_of_x,
+                        offer,
+                        offer_dependent_magic_number,
                         p,
-                        str(offer_dependent_magic_number) + " for " + str(offer.argument),
-                        -discount_total,
+                        quantity,
+                        quantity_as_int,
+                        unit_price,
                     )
 
                 if discount:
