@@ -2,7 +2,7 @@ import approvaltests
 import pytest
 
 from src.model_objects import SpecialOfferType
-from tests.receipt_printer import ReceiptPrinter
+from tests.receipt_printer import ReceiptPrintingTestHelper
 
 
 def test_empty_basket(teller, cart, toothbrush, apples):
@@ -12,7 +12,7 @@ def test_empty_basket(teller, cart, toothbrush, apples):
     """
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_no_discount(teller, cart, toothbrush, apples):
@@ -21,7 +21,7 @@ def test_no_discount(teller, cart, toothbrush, apples):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_ten_percent_discount(teller, cart, toothbrush):
@@ -30,7 +30,7 @@ def test_ten_percent_discount(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_three_for_two_discount(teller, cart, toothbrush):
@@ -39,7 +39,7 @@ def test_three_for_two_discount(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_three_for_two_discount_too_few(teller, cart, toothbrush):
@@ -48,7 +48,7 @@ def test_three_for_two_discount_too_few(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_five_for_amount_discount(teller, cart, toothbrush):
@@ -57,7 +57,7 @@ def test_five_for_amount_discount(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_five_for_amount_discount_bought_too_few(teller, cart, toothbrush):
@@ -66,7 +66,7 @@ def test_five_for_amount_discount_bought_too_few(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_two_for_amount_discount(teller, cart, toothbrush):
@@ -75,7 +75,7 @@ def test_two_for_amount_discount(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
 
 
 def test_two_for_amount_discount_bought_too_few(teller, cart, toothbrush):
@@ -84,4 +84,4 @@ def test_two_for_amount_discount_bought_too_few(teller, cart, toothbrush):
 
     receipt = teller.checks_out_articles_from(cart)
 
-    approvaltests.verify(ReceiptPrinter().print_receipt(receipt))
+    approvaltests.verify(ReceiptPrintingTestHelper().print_receipt(receipt))
