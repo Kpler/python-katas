@@ -1,6 +1,6 @@
 import pytest
 
-from src.texas_holdem.input import read_card
+from src.texas_holdem.input import read_card, read_hand
 from src.texas_holdem.card import Card, Suits, Ranks
 
 testdata = [
@@ -13,13 +13,15 @@ testdata = [
     (Card(rank=Ranks.SIX, suit=Suits.DIAMONDS), "6d"),
 ]
 
+
 @pytest.mark.parametrize("expected, input", testdata)
 def test_read_1_card(expected, input):
     assert read_card(input) == expected
 
+
 # Kc 9s Ks Kd 9d 3c 6d
 def test_read_multi_card_hand():
-    assert read_card("Kc 9s Ks Kd 9d 3c 6d") == [
+    assert read_hand("Kc 9s Ks Kd 9d 3c 6d") == [
         Card(rank=Ranks.KING, suit=Suits.CLUBS),
         Card(rank=Ranks.NINE, suit=Suits.SPADES),
         Card(rank=Ranks.KING, suit=Suits.SPADES),
