@@ -48,4 +48,4 @@ After an hour, having a micro retro is a good thing: (3 words)
 2) do nix-shell
 3) create a branch, a random commit, push to the repo
 4) check that you can zoom in your editor
-5) [IDE] configure python sdk
+5) [IDE] configure python sdk...
