@@ -8,6 +8,7 @@ class Evaluation(Enum):
     FOLDED = 0
     HIGH_CARD = 1
     PAIR = 2
+    TWO_PAIRS = 3
 
 
 def evaluate_after_river(cards: list[Card]):
@@ -18,5 +19,9 @@ def evaluate_after_river(cards: list[Card]):
 
         return Evaluation.FOLDED
     rank_counts = Counter([c.rank for c in cards])
-    if any(count == 2 for count in rank_counts.values()):
+
+    combi_counts = Counter([rank_count[1] for rank_count in rank_counts.items()])
+    if combi_counts[2] == 1:
         return Evaluation.PAIR
+    if combi_counts[2] == 2:
+        return Evaluation.TWO_PAIRS
