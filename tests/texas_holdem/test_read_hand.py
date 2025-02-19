@@ -24,3 +24,7 @@ def test_read_with_starting_white_space():
         Card(rank=Ranks.THREE, suit=Suits.CLUBS),
         Card(rank=Ranks.SIX, suit=Suits.DIAMONDS),
     ]
+
+
+def test_read_hand_empty_line():
+    assert read_hand("") == []

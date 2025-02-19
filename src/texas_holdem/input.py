@@ -29,5 +29,7 @@ def read_card(text: str) -> Card:
 
 
 def read_hand(text: str) -> list[Card]:
+    if not text.strip():
+        return []
     card_inputs = text.strip().split(" ")
     return [read_card(card_input) for card_input in card_inputs]
