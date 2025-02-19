@@ -9,3 +9,15 @@ def test_not_enough_cards():
         )
         == Evaluation.FOLDED
     )
+
+def test_evaluate_card_combination():
+    cards = [
+        Card(Ranks.TWO, Suits.CLUBS),
+        Card(Ranks.TWO, Suits.DIAMONDS),  # pair of TWOs
+        Card(Ranks.THREE, Suits.HEARTS),
+        Card(Ranks.FIVE, Suits.SPADES),
+        Card(Ranks.SEVEN, Suits.CLUBS),
+        Card(Ranks.NINE, Suits.HEARTS),
+        Card(Ranks.KING, Suits.DIAMONDS),
+    ]
+    assert(evaluate_after_river(cards) == Evaluation.PAIR)

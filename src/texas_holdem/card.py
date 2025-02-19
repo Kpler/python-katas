@@ -27,5 +27,6 @@ class Ranks(Enum):
 
 @dataclass
 class Card:
-    suit: Suits
     rank: Ranks
+    suit: Suits
+
