@@ -26,8 +26,9 @@ class Rank(Enum):
     ACE = "A"
 
 class HandRankType(Enum):
-    HIGH_CARD = auto()
-    PAIR = auto()
+    HIGH_CARD = 0
+    PAIR = 1
+    FOLDED = -1
 
 RANK_ORDER = tuple(r for r in Rank)
 
