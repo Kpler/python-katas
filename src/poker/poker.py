@@ -1,11 +1,10 @@
 from poker.with_read_input.poker import HandRank
 
-def compute_winner(hands: list[HandRank]) -> int:
-    # Associer chaque main à son index original
-    indexed_hands = list(enumerate(hands))
+# We assume that there's exactly 1 winner
+def compute_winner_index(hands: list[HandRank]) -> int:
+    indexed_hands = enumerate(hands)
+    hands_sorted_by_strength_descending = sorted(indexed_hands, key=lambda hand: hand[1], reverse=True)
+    winning_hand = hands_sorted_by_strength_descending[0]
+    winning_hand_index = winning_hand[0]
+    return winning_hand_index
 
-    # Tri par type (valeur numérique la plus élevée d'abord) puis par valeurs
-    sorted_hands = sorted(indexed_hands, key=lambda x: (x[1].type.value, x[1].values), reverse=True)
-
-    # Retourner l'index original de la main gagnante
-    return sorted_hands[0][0]

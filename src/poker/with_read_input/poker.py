@@ -1,7 +1,6 @@
 from __future__ import annotations
-
 from dataclasses import dataclass
-from enum import Enum, auto
+from enum import Enum
 
 class Suit(Enum):
     SPADE = "s"
@@ -50,6 +49,15 @@ class Card:
 class HandRank:
     type: HandRankType
     values: list[Rank]
+
+    def __lt__(self, other: HandRank) -> bool:
+        if self.type != other.type:
+            return self.type.value < other.type.value
+        for index, _ in enumerate(self.values):
+            if self.values[index].value == other.values[index].value:
+                continue
+            return RANK_ORDER.index(self.values[index]) < RANK_ORDER.index(other.values[index])
+        return False
 
 
 def read_input(input_str: str) -> list[list[Card]]:
