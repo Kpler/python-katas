@@ -1,4 +1,4 @@
-from poker.with_read_input.poker import *
+from src.poker.with_read_input.poker import *
 import pytest
 
 king_of_spade = Card(rank=Rank.KING, suit=Suit.SPADE)
