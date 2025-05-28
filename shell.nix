@@ -6,24 +6,22 @@
 #     or use direnv and echo 'use nix' >> .envrc to automatically
 #     use nix-shell whenever you enter into the project
 #
-# Report issues on slack #tech-help-nix
+# Report issues on slack #tech-help-nixex
 let
   nixpkgs = builtins.fetchTarball {
-    name   = "nixos-23.05-20230814";
-    url    = "https://github.com/NixOS/nixpkgs/archive/720e61ed8de1.tar.gz";
-    sha256 = "0ii10wmm8hqdp7bii7iza58rjaqs4z3ivv71qyix3qawwxx48hw9";
+    name   = "nixos-24.11-20250513";
+    url    = "https://github.com/NixOS/nixpkgs/archive/a39ed32a651f.tar.gz";
+    sha256 = "16pw0f94nr3j91z0wm4ndjm44xfd238vcdkg07s2l74znkaavnwk";
   };
   pkgs = import nixpkgs { };
 
   systemDependencies = [
-    pkgs.python310
-    pkgs.postgresql_12  # libpq is not available, see https://github.com/NixOS/nixpkgs/issues/61580
+    pkgs.python312
   ];
 
 in pkgs.mkShell {
   buildInputs = [
-      pkgs.python310
-      pkgs.postgresql_12
+      pkgs.python312
       pkgs.openssl  # macOS default SSL libraries are binary incompatible
     ];
 
@@ -35,7 +33,7 @@ in pkgs.mkShell {
 
     # because nixpkgs may not always contain packages hosted on pypi,
     # we instead rely on a local virtualenv dir for python packages
-    KPLER_VENV_DIR="$KPLER_PROJECT_DIR/.venv/py310"
+    KPLER_VENV_DIR="$KPLER_PROJECT_DIR/.venv"
     python -m venv $KPLER_VENV_DIR
     PATH="$KPLER_VENV_DIR/bin:$PATH"
     # Add source root to python path
