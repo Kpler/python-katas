@@ -3,6 +3,7 @@ from typing import List, Tuple, Dict
 from dataclasses import dataclass
 from collections import Counter
 
+from collections import Counter
 
 class Suit(Enum):
     CLUBS = 'c'
@@ -76,7 +77,10 @@ def get_similar_cards(hand: Hand) -> Dict[str, List]:
 
 def is_flush(hand: List[Card]) -> bool:
     suits = [card.suit for card in hand]
-    return len(set(suits)) == 1
+
+    suit_counts = Counter(card.suit for card in hand)
+    return any(count >= 5 for count in suit_counts.values())
+    #return len(set(suits)) == 1
 
 def is_straight(hand: List[Card]) -> Tuple[bool, int]:
     faces = sorted([face_values[card.face.value] for card in hand])
@@ -85,7 +89,7 @@ def is_straight(hand: List[Card]) -> Tuple[bool, int]:
     if len(unique_faces) < 5:
         return False, 0
 
-    for i in range(len(unique_faces) - 4):
+    for i in range(len(unique_faces) - 5, -1, -1):
         if unique_faces[i:i+5] == list(range(unique_faces[i], unique_faces[i]+5)):
             return True, unique_faces[i+4]
     # specific case with ace when we have a low straight
@@ -107,6 +111,8 @@ def identify_hand(hand: Hand) -> str:
     flush = is_flush(hand)
     straight, high_card = is_straight(hand)
 
+    if len(hand) < 7:
+        return "Folded"
     if is_royal_flush(hand):
         return "Royal Flush"
     elif straight and flush:

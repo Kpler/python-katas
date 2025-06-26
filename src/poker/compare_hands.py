@@ -1,19 +1,6 @@
-def compare_hands(hand1, hand2):
-    """
-    Compare two poker hands and determine the winner.
+from poker.card import Hand, identify_hand
 
-    Args:
-        hand1 (list): The first poker hand.
-        hand2 (list): The second poker hand.
-
-    Returns:
-        str: A message indicating which hand wins or if it's a tie.
-    """
-    # Placeholder for actual comparison logic
-    # This should be replaced with the actual implementation that compares the hands
-    if len(hand1) > len(hand2):
-        return "Hand 1 wins"
-    elif len(hand1) < len(hand2):
-        return "Hand 2 wins"
-    else:
-        return "It's a tie"
+def compare_hands(hand1: Hand, hand2: Hand) -> str:
+    hand1_rank = identify_hand(hand1)
+    hand2_rank = identify_hand(hand2)
+    return f"{hand1_rank} - {hand2_rank}"
