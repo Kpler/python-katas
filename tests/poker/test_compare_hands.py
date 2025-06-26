@@ -28,7 +28,10 @@ def test_compare_hands():
     result = compare_hands(hand1, hand2)
 
     # THEN
-    assert result == "Full House - Two Pair"
+    assert result == [
+        {'hand': hand1, 'rank': "Full House", 'is_winner': True},
+        {'hand' : hand2, 'rank': "Two Pair", 'is_winner': False},
+    ]
 
 def test_compare_hands_2():
     # GIVEN
@@ -52,4 +55,8 @@ def test_compare_hands_2():
     result = compare_hands(hand1, hand2)
 
     # THEN
-    assert result == "Flush - Folded"
+    assert result == [
+        {'hand': hand1, 'rank': "Flush", 'is_winner': True},
+        {'hand' : hand2, 'rank': "Folded", 'is_winner': False},
+    ]
+
