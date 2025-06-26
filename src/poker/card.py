@@ -76,11 +76,8 @@ def get_similar_cards(hand: Hand) -> Dict[str, List]:
 
 
 def is_flush(hand: List[Card]) -> bool:
-    suits = [card.suit for card in hand]
-
     suit_counts = Counter(card.suit for card in hand)
     return any(count >= 5 for count in suit_counts.values())
-    #return len(set(suits)) == 1
 
 def is_straight(hand: List[Card]) -> Tuple[bool, int]:
     faces = sorted([face_values[card.face.value] for card in hand])

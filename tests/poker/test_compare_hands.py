@@ -1,4 +1,4 @@
-from poker.compare_hands import compare_hands
+from poker.compare_hands import compare_hands, compare_ranks
 from poker.card import Card, Face, Suit
 
 def test_compare_hands():
@@ -60,3 +60,53 @@ def test_compare_hands_2():
         {'hand' : hand2, 'rank': "Folded", 'is_winner': False},
     ]
 
+def test_compare_hands_check_is_winner():
+    # GIVEN
+    hand1 = [ #9c 5s
+        Card(face=Face.NINE, suit=Suit.HEARTS),
+        Card(face=Face.FIVE, suit=Suit.SPADES),
+
+    ]
+
+    hand2 = [ #4d 2d Ks Kd 9d 3c 6d Flush
+        Card(face=Face.FOUR, suit=Suit.DIAMONDS),
+        Card(face=Face.TWO, suit=Suit.DIAMONDS),
+        Card(face=Face.KING, suit=Suit.SPADES),
+        Card(face=Face.KING, suit=Suit.DIAMONDS),
+        Card(face=Face.NINE, suit=Suit.DIAMONDS),
+        Card(face=Face.THREE, suit=Suit.CLUBS),
+        Card(face=Face.SIX, suit=Suit.DIAMONDS)
+    ]
+
+    # WHEN
+    result = compare_hands(hand1, hand2)
+
+    # THEN
+    assert result == [
+        {'hand': hand1, 'rank': "Folded", 'is_winner': False},
+        {'hand' : hand2, 'rank': "Flush", 'is_winner': True},
+    ]
+
+
+def test_compare_rank() -> None:
+    # GIVEN
+    rank1 = "Full House"
+    rank2 = "Two Pair"
+
+    # WHEN
+    result = compare_ranks([rank1, rank2])
+
+    # THEN
+    assert result == 0
+
+
+def test_compare_rank_2() -> None:
+    # GIVEN
+    rank1 = "Full House"
+    rank2 = "Two Pair"
+
+    # WHEN
+    result = compare_ranks([rank2, rank1])
+
+    # THEN
+    assert result == 1
