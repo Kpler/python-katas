@@ -2,4 +2,4 @@ from dataclasses import dataclass
 
 @dataclass
 class MolkkyGame:
-    score: int
+    score: int = 0
