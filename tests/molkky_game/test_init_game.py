@@ -25,3 +25,9 @@ def test_score_exceed_rest_to_25():
     game.score = 47
     game.kick_pins([7])
     assert game.score == 25
+
+def test_win_game():
+    game = MolkkyGame()
+    game.score = 47
+    game.kick_pins([3])
+    assert game.score == 50
