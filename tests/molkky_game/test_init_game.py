@@ -40,3 +40,13 @@ def test_loose_game():
     game.kick_pins([])
     game.kick_pins([])
     assert game.status == "lost"
+
+def test_successive_failed_attempts():
+    game = MolkkyGame()
+    game.score = 40
+    game.kick_pins([])
+    game.kick_pins([])
+    game.kick_pins([3])
+    game.kick_pins([])
+    assert game.status == "ongoing"
+    assert game.failed_attempts == 1

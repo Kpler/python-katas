@@ -20,3 +20,7 @@ class MolkkyGame:
             self.status = "win"
         if len(param) == 0:
             self.failed_attempts += 1
+            if self.failed_attempts == 3:
+                self.status = "lost"
+        else:
+            self.failed_attempts = 0
