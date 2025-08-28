@@ -1,11 +1,10 @@
-from dataclasses import dataclass
 from typing import List
 
 
-@dataclass
 class MolkkyGame:
-    pins_down: List[int]
-    score: int = 0
+    def __init__(self) -> None:
+        self.pins_down = []
+        self.score = 0
 
     def kick_pins(self, param):
         self.pins_down = param
