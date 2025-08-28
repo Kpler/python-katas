@@ -31,3 +31,12 @@ def test_win_game():
     game.score = 47
     game.kick_pins([3])
     assert game.score == 50
+    assert game.status == "win"
+
+def test_loose_game():
+    game = MolkkyGame()
+    game.score = 47
+    game.kick_pins([])
+    game.kick_pins([])
+    game.kick_pins([])
+    assert game.status == "lost"
