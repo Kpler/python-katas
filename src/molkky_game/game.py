@@ -12,3 +12,5 @@ class MolkkyGame:
             self.score += param[0]
         else:
             self.score += len(param)
+        if self.score > 50 :
+            self.score = 25

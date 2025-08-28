@@ -18,3 +18,10 @@ def test_score_several_pins():
     game.kick_pins([5, 3, 1])
     assert game.pins_down == [5, 3, 1]
     assert game.score == 3
+
+
+def test_score_exceed_rest_to_25():
+    game = MolkkyGame()
+    game.score = 47
+    game.kick_pins([7])
+    assert game.score == 25
