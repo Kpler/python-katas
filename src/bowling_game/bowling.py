@@ -17,7 +17,6 @@ class Game:
 
     def __init__(self):
         self.first_roll = True
-        #self.current_score = 0
         self.frames = [Frame()]
 
 
@@ -30,10 +29,5 @@ class Game:
         if len(self.frames)>1 and self.frames[-2].first_roll == 10:
             self.frames[-2].bonuses= self.frames[-2].bonuses + score
 
-        # self.current_score += score
-
-        # self.frame = self.frame + 1 if not self.first_roll else self.frame
-        pass
-# TODO : handle strike
     def score(self):
         return sum(frame.score() for frame in self.frames)
