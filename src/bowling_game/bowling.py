@@ -2,10 +2,10 @@ class Frame:
     def __init__(self):
         self.first_roll = None
         self.second_roll = None
-        self.bonuses = []
+        self.bonuses = 0
 
     def score(self):
-        return (self.first_roll or 0) + (self.second_roll or 0) + sum(self.bonuses)
+        return (self.first_roll or 0) + (self.second_roll or 0) + self.bonuses
 
     def add_roll(self, score):
         if self.first_roll is None:
@@ -28,7 +28,7 @@ class Game:
             self.frames.append(Frame())
 
         if len(self.frames)>1 and self.frames[-2].first_roll == 10:
-            self.frames[-2].bonuses.append(score)
+            self.frames[-2].bonuses= self.frames[-2].bonuses + score
 
         # self.current_score += score
 
