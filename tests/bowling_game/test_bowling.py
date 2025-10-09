@@ -8,6 +8,7 @@ def test_roll_nothing():
 
     assert game.score() == 0
 
+
 def test_roll_one():
     game = Game()
 
@@ -23,3 +24,15 @@ def test_several_rolls():
     game.roll(4)
 
     assert game.score() == 5
+
+
+def test_strike_roll():
+    game = Game()
+    game.roll(10)
+
+    assert game.score() == 10
+
+    game.roll(3)
+    game.roll(5)
+
+    assert game.score() == 26
