@@ -18,7 +18,7 @@ def test_roll_one():
 
 
 def test_several_rolls():
-    game = Game() 
+    game = Game()
 
     game.roll(1)
     game.roll(4)
