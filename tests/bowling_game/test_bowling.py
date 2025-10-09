@@ -14,3 +14,12 @@ def test_roll_one():
     game.roll(1)
 
     assert game.score() == 1
+
+
+def test_several_rolls():
+    game = Game() 
+
+    game.roll(1)
+    game.roll(4)
+
+    assert game.score() == 5
